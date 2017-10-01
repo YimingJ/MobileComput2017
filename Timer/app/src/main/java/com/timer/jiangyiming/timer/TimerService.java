@@ -1,13 +1,17 @@
 package com.timer.jiangyiming.timer;
 
 import android.app.IntentService;
+import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.ResultReceiver;
 import android.provider.Settings;
-import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 /**
@@ -15,8 +19,8 @@ import android.util.Log;
  */
 
 public class TimerService extends IntentService {
-    NotificationCompat.Builder notification;
     private static final int UniqueID = 1124;
+
     public TimerService() {
         super("Timer Service");
     }
@@ -46,20 +50,34 @@ public class TimerService extends IntentService {
                     e.printStackTrace();
                 }
             }
-            notification = new NotificationCompat.Builder(this);
-            notification.setAutoCancel(true);
-            notification.setSmallIcon(R.mipmap.ic_launcher);
-            notification.setTicker("Ticker");
-            notification.setWhen(System.currentTimeMillis());
-            notification.setContentTitle("Notification~Hey");
-            notification.setContentText("timer is done...");
 
-            Intent intent1 = new Intent(this,MainActivity.class);
-            PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent1,PendingIntent.FLAG_UPDATE_CURRENT);
-            notification.setContentIntent(pendingIntent);
+            String id = "myChannel";
+            int importance = NotificationManager.IMPORTANCE_LOW;
+            NotificationChannel mChannel = null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                mChannel = new NotificationChannel(id, "1234", importance);
+                mChannel.setLightColor(Color.GREEN);
+            }
+            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                nm.createNotificationChannel(mChannel);
+            }
 
-            NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-            nm.notify(UniqueID,notification.build());
+            Notification notification = null;
+            Intent intent1 = new Intent(this, MainActivity.class);
+            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                notification = new Notification.Builder(this,id)
+                        .setContentTitle("Hey~Hey~Hey")
+                        .setContentText("Time for exsercise now!!")
+                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setAutoCancel(true)
+                        .setContentIntent(pendingIntent)
+                        .setWhen(System.currentTimeMillis())
+                        .build();
+            }
+            nm.notify(1,notification);
 
             return;
         }
