@@ -17,7 +17,8 @@ public class TimerService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        for (int i = 0; i <5;i++){
+        int time = intent.getIntExtra("time",0);
+        for (int i = 0; i <time;i++){
             Log.d("lovelytimer","i ="+i);
         }
         try {
