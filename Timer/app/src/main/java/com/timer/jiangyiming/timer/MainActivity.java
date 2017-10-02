@@ -13,15 +13,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements SensorEventListener {
-
-//    private double lastAccX=0;
-//    private double lastAccY=0;
-//    private double lastAccZ=0;
+public class MainActivity extends AppCompatActivity {
 
 //    private TextView xText,yText,zText;
-//    private Sensor mySensor;
-//    private SensorManager sensorManager;
 
     private Button timerOn;
 //    private static final String KEY = "timer";
@@ -31,12 +25,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        MessageReceiver receiver = new MessageReceiver(new Message());
-
-//        sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
-//        //accelerometer
-//        mySensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-//        //sensor listener
-//        sensorManager.registerListener(this,mySensor,SensorManager.SENSOR_DELAY_NORMAL);
 
         //assign textviews
 //        xText = (TextView)findViewById(R.id.xText);
@@ -65,31 +53,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 }
             }
         });
-    }
-
-    @Override
-    public void onSensorChanged(SensorEvent sensorEvent) {
-//        xText.setText("X "+ sensorEvent.values[0]);
-//        yText.setText("Y "+ sensorEvent.values[1]);
-//        zText.setText("Z "+ sensorEvent.values[2]);
-//
-//        double curAccX = sensorEvent.values[0];
-//        double curAccY = sensorEvent.values[1];
-//        double curAccZ = sensorEvent.values[2];
-//        if ((curAccX != lastAccX || curAccY != lastAccY || curAccZ != lastAccZ) && timerOn.getText().equals("timerOn")){
-//            stopService(new Intent(this,TimerService.class));
-//            startService(new Intent(this,TimerService.class));
-//            lastAccX = curAccX;
-//            lastAccY = curAccY;
-//            lastAccZ = curAccZ;
-//            Log.d("sensorChange","change detected");
-//        }
-
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int i) {
-
     }
 
     public class Message {
