@@ -52,14 +52,14 @@ public class TimerService extends IntentService {
 
             String id = "myChannel";
             int importance = NotificationManager.IMPORTANCE_LOW;
-            NotificationChannel mChannel = null;
+            NotificationChannel myChannel = null;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                mChannel = new NotificationChannel(id, "1234", importance);
-                mChannel.setLightColor(Color.GREEN);
+                myChannel = new NotificationChannel(id, "1234", importance);
+                myChannel.setLightColor(Color.GREEN);
             }
             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                nm.createNotificationChannel(mChannel);
+                nm.createNotificationChannel(myChannel);
             }
 
             Notification notification = null;
@@ -73,7 +73,7 @@ public class TimerService extends IntentService {
                         .setSmallIcon(R.mipmap.ic_launcher)
                         .setAutoCancel(true)
                         .setContentIntent(pendingIntent)
-                        .setWhen(System.currentTimeMillis())
+                        .setShowWhen(true)
                         .build();
             }
             nm.notify(1,notification);
