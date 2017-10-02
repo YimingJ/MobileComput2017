@@ -26,4 +26,32 @@
         android:layout_marginTop="20dp"
         android:text="timerOn" />
 
+    <TextView
+        android:id="@+id/xText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/timerOn"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="58dp"
+        android:layout_toEndOf="@+id/timerOn"
+        android:text="X" />
+
+    <TextView
+        android:id="@+id/yText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/xText"
+        android:layout_below="@+id/xText"
+        android:layout_marginTop="19dp"
+        android:text="Y" />
+
+    <TextView
+        android:id="@+id/zText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/yText"
+        android:layout_below="@+id/yText"
+        android:layout_marginTop="24dp"
+        android:text="Z" />
+
 </RelativeLayout>
