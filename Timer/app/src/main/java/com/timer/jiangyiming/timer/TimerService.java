@@ -8,21 +8,34 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.ResultReceiver;
 import android.provider.Settings;
 import android.util.Log;
+import android.widget.Button;
 
 /**
  * Created by jiangyiming on 10/1/17.
  */
 
-public class TimerService extends IntentService {
+public class TimerService extends IntentService implements SensorEventListener {
 //    private static final long timeInterval = 1000 * 60 * 120;
-    private static final long timeInterval = 6000;
+    private static final long timeInterval = 10000;
     private long startTime;
-    private boolean stopFlag=false;
+    private boolean stopFlag;
+    private static int counter;
+    private boolean timerOn;
+
+    private double lastAccX;
+    private double lastAccY;
+    private double lastAccZ;
+    private Sensor mySensor;
+    private SensorManager sensorManager;
 
     public TimerService() {
         super("Timer Service");
@@ -32,25 +45,48 @@ public class TimerService extends IntentService {
     public void onCreate() {
         super.onCreate();
         startTime = System.currentTimeMillis();
+        counter=0;
+        lastAccX=0;
+        lastAccY=0;
+        lastAccZ=0;
+        stopFlag=false;
+        timerOn = true;
         Log.d("lovelytimer", "Timer service starts");
 
+        sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
+        //accelerometer
+        mySensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        //sensor listener
+        sensorManager.registerListener(this,mySensor,SensorManager.SENSOR_DELAY_NORMAL);
+        Log.d("sensorState", "sensor starts");
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
+        Log.d("lovelytimer", "onStartCommand");
+        sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
+        //accelerometer
+        mySensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        //sensor listener
+        sensorManager.registerListener(this,mySensor,SensorManager.SENSOR_DELAY_NORMAL);
+        Log.d("sensorState", "sensor onStartCommand");
         return START_STICKY;
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
-
         while (!stopFlag) {
             long interval = System.currentTimeMillis() - startTime;
             if (interval > timeInterval) {
                 Log.d("lovelytimer", ""+interval);
                 sendNotification();
                 startTime = System.currentTimeMillis();
+            }
+            if (intent == null){
+                timerOn = true;
+            }else {
+                timerOn = intent.getBooleanExtra("timerOn",true);
             }
         }
 
@@ -72,9 +108,9 @@ public class TimerService extends IntentService {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        stopFlag=true;
-        Log.d("lovelytimer","you are not lovely at all");
-
+        stopFlag = true;
+        sensorManager.unregisterListener(this);
+        Log.d("lovelytimer","service closed..");
     }
 
     public void sendNotification() {
@@ -105,6 +141,31 @@ public class TimerService extends IntentService {
                     .build();
         }
         nm.notify(1, notification);
+        counter++;
     }
 
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+
+        double curAccX = sensorEvent.values[0];
+        double curAccY = sensorEvent.values[1];
+        double curAccZ = sensorEvent.values[2];
+        if ((curAccX != lastAccX || curAccY != lastAccY || curAccZ != lastAccZ) && timerOn){
+            Log.d("sensorState","X "+curAccX);
+            Log.d("sensorState","Y "+curAccY);
+            Log.d("sensorState","Z "+curAccZ);
+//            stopService(new Intent(this,TimerService.class));
+//            startService(new Intent(this,TimerService.class));
+            startTime = System.currentTimeMillis();
+            lastAccX = curAccX;
+            lastAccY = curAccY;
+            lastAccZ = curAccZ;
+            Log.d("sensorChange","change detected");
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
+    }
 }
