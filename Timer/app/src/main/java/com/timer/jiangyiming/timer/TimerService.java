@@ -20,7 +20,7 @@ import android.util.Log;
 
 public class TimerService extends IntentService {
 //    private static final long timeInterval = 1000 * 60 * 120;
-    private static final long timeInterval = 4000;
+    private static final long timeInterval = 6000;
     private long startTime;
     private boolean stopFlag=false;
 

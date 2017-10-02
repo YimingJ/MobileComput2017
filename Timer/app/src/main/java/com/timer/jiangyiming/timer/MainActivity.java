@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
+    private double lastAcc=0;
     private TextView xText,yText,zText;
     private Sensor mySensor;
     private SensorManager sensorManager;
@@ -38,16 +39,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         xText = (TextView)findViewById(R.id.xText);
         yText = (TextView)findViewById(R.id.yText);
         zText = (TextView)findViewById(R.id.zText);
-
+        timerOn = (Button) findViewById(R.id.timerOn);
 
         Intent intent = new Intent(this, TimerService.class);
-        intent.putExtra("time", 10);
-        intent.putExtra("receiver", receiver);
+//        intent.putExtra("time", 10);
+//        intent.putExtra("receiver", receiver);
         startService(intent);
         changeTimerMode(intent);
     }
     public void changeTimerMode(final Intent intent){
-        timerOn = (Button) findViewById(R.id.timerOn);
         timerOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +67,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         xText.setText("X "+ sensorEvent.values[0]);
         yText.setText("Y "+ sensorEvent.values[1]);
         zText.setText("Z "+ sensorEvent.values[2]);
+
+        double curAcc = sensorEvent.values[0] + sensorEvent.values[1] + sensorEvent.values[2];
+        if (curAcc!=lastAcc && timerOn.getText().equals("timerOn")){
+            stopService(new Intent(this,TimerService.class));
+            startService(new Intent(this,TimerService.class));
+            lastAcc = curAcc;
+            Log.d("sensorChange","change detected");
+        }
+
     }
 
     @Override
