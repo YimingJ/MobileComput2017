@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Register extends AppCompatActivity {
     Button buttonCancel,buttonOk;
     EditText rEmail,rPwd,rUsername,rConfirmPwd;
@@ -49,20 +52,29 @@ public class Register extends AppCompatActivity {
     };
 
     public void register_check(){
-        if(isUsernameValid()){
-            if(rPwd.equals(rConfirmPwd)==false){
-                Toast.makeText(this,"Confirm Password is not same with Password", Toast.LENGTH_SHORT).show();
+        if(isValid()){
+            String userName=rUsername.getText().toString().trim();
+            String psw=rPwd.getText().toString().trim();
+            String confirmPwd=rConfirmPwd.getText().toString().trim();
+            String email=rEmail.getText().toString().trim();
+            if(psw.equals(rConfirmPwd)){
+                Toast.makeText(this,"ConfrimPassword is not same with password",Toast.LENGTH_SHORT).show();
             }
-            else{
-                //todo database
+            else if(!isEmail(email)){
+                Toast.makeText(this,"Please input correct format of email",Toast.LENGTH_SHORT).show();
+            }
+            else{//todo database
                 Intent intent_register_login=new Intent(Register.this,Login.class);
-                startActivity(intent_register_login);
-            }
+                startActivity(intent_register_login);}
         }
     }
-    public boolean isUsernameValid(){
+    public boolean isValid(){
         if(rUsername.getText().toString().trim().equals("")){
             Toast.makeText(this,"Username can't be empty",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if(rEmail.getText().toString().trim().equals("")){
+            Toast.makeText(this,"Email can't be empty",Toast.LENGTH_SHORT).show();//// TODO: 2017/10/3
             return false;
         }
         else if(rPwd.getText().toString().trim().equals("")){
@@ -75,5 +87,9 @@ public class Register extends AppCompatActivity {
         }
         return true;
     }
-
+    public boolean isEmail(String email){
+        Pattern p=Pattern.compile("\\w+@(\\w+.)+[a-z]]{2,3}");
+        Matcher m=p.matcher(email);
+        return m.matches();
+    }
 }

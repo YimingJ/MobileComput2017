@@ -31,9 +31,16 @@ public class Login extends AppCompatActivity {
         buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(IsCorrect()){
                 Intent intent=new Intent(Login.this,MainInterface.class);
-                startActivity(intent);
+                startActivity(intent);}
             }
+
         });
+    }
+
+    public boolean IsCorrect(){
+        //// TODO: 2017/10/3 1.database
+        return true;
     }
 }
