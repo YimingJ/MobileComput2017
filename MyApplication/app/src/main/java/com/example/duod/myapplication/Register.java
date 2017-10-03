@@ -57,7 +57,8 @@ public class Register extends AppCompatActivity {
             String psw=rPwd.getText().toString().trim();
             String confirmPwd=rConfirmPwd.getText().toString().trim();
             String email=rEmail.getText().toString().trim();
-            if(psw.equals(rConfirmPwd)){
+            if(!
+                    psw.equals(rConfirmPwd)){
                 Toast.makeText(this,"ConfrimPassword is not same with password",Toast.LENGTH_SHORT).show();
             }
             else if(!isEmail(email)){
@@ -88,7 +89,7 @@ public class Register extends AppCompatActivity {
         return true;
     }
     public boolean isEmail(String email){
-        Pattern p=Pattern.compile("\\w+@(\\w+.)+[a-z]]{2,3}");
+        Pattern p=Pattern.compile("\\w+@(\\w+.)+[a-z]{2,3}");
         Matcher m=p.matcher(email);
         return m.matches();
     }
