@@ -12,9 +12,12 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.ResultReceiver;
+import android.os.SystemClock;
 import android.provider.Settings;
 import android.util.Log;
 import android.widget.Button;
@@ -24,7 +27,7 @@ import android.widget.Button;
  */
 
 public class TimerService extends IntentService implements SensorEventListener {
-//    private static final long timeInterval = 1000 * 60 * 120;
+    //    private static final long timeInterval = 1000 * 60 * 120;
     private static final long timeInterval = 10000;
     private long startTime;
     private boolean stopFlag;
@@ -44,20 +47,20 @@ public class TimerService extends IntentService implements SensorEventListener {
     @Override
     public void onCreate() {
         super.onCreate();
-        startTime = System.currentTimeMillis();
-        counter=0;
-        lastAccX=0;
-        lastAccY=0;
-        lastAccZ=0;
-        stopFlag=false;
+        startTime = SystemClock.uptimeMillis();
+        counter = 0;
+        lastAccX = 0;
+        lastAccY = 0;
+        lastAccZ = 0;
+        stopFlag = false;
         timerOn = true;
         Log.d("lovelytimer", "Timer service starts");
 
-        sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         //accelerometer
         mySensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         //sensor listener
-        sensorManager.registerListener(this,mySensor,SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(this, mySensor, SensorManager.SENSOR_DELAY_NORMAL);
         Log.d("sensorState", "sensor starts");
     }
 
@@ -65,11 +68,11 @@ public class TimerService extends IntentService implements SensorEventListener {
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
         Log.d("lovelytimer", "onStartCommand");
-        sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         //accelerometer
         mySensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         //sensor listener
-        sensorManager.registerListener(this,mySensor,SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(this, mySensor, SensorManager.SENSOR_DELAY_NORMAL);
         Log.d("sensorState", "sensor onStartCommand");
         return START_STICKY;
     }
@@ -77,16 +80,17 @@ public class TimerService extends IntentService implements SensorEventListener {
     @Override
     protected void onHandleIntent(Intent intent) {
         while (!stopFlag) {
-            long interval = System.currentTimeMillis() - startTime;
+            long currentTime = SystemClock.uptimeMillis();
+            long interval = currentTime - startTime;
             if (interval > timeInterval) {
-                Log.d("lovelytimer", ""+interval);
+                Log.d("lovelytimer", "" + interval);
                 sendNotification();
-                startTime = System.currentTimeMillis();
+                startTime = SystemClock.uptimeMillis();
             }
-            if (intent == null){
+            if (intent == null) {
                 timerOn = true;
-            }else {
-                timerOn = intent.getBooleanExtra("timerOn",true);
+            } else {
+                timerOn = intent.getBooleanExtra("timerOn", true);
             }
         }
 
@@ -110,7 +114,7 @@ public class TimerService extends IntentService implements SensorEventListener {
         super.onDestroy();
         stopFlag = true;
         sensorManager.unregisterListener(this);
-        Log.d("lovelytimer","service closed..");
+        Log.d("lovelytimer", "service closed..");
     }
 
     public void sendNotification() {
@@ -138,11 +142,25 @@ public class TimerService extends IntentService implements SensorEventListener {
                     .setAutoCancel(true)
                     .setContentIntent(pendingIntent)
                     .setShowWhen(true)
+                    .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
+                    .build();
+        } else {
+            notification = new Notification.Builder(this)
+                    .setContentTitle("Hey~Hey~Hey")
+                    .setContentText("Time for exsercise now!!")
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setAutoCancel(true)
+                    .setContentIntent(pendingIntent)
+                    .setShowWhen(true)
+                    .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
                     .build();
         }
+
         nm.notify(1, notification);
+        Log.d("send", "notification sent...");
         counter++;
     }
+
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
@@ -150,17 +168,17 @@ public class TimerService extends IntentService implements SensorEventListener {
         double curAccX = sensorEvent.values[0];
         double curAccY = sensorEvent.values[1];
         double curAccZ = sensorEvent.values[2];
-        if ((curAccX != lastAccX || curAccY != lastAccY || curAccZ != lastAccZ) && timerOn){
-            Log.d("sensorState","X "+curAccX);
-            Log.d("sensorState","Y "+curAccY);
-            Log.d("sensorState","Z "+curAccZ);
+        if (((curAccX - lastAccX) > 1 || (curAccY - lastAccY > 1) || (curAccZ - lastAccZ) > 1) && timerOn) {
+            Log.d("sensorState", "X " + curAccX);
+            Log.d("sensorState", "Y " + curAccY);
+            Log.d("sensorState", "Z " + curAccZ);
 //            stopService(new Intent(this,TimerService.class));
 //            startService(new Intent(this,TimerService.class));
-            startTime = System.currentTimeMillis();
+            startTime = SystemClock.uptimeMillis();
             lastAccX = curAccX;
             lastAccY = curAccY;
             lastAccZ = curAccZ;
-            Log.d("sensorChange","change detected");
+            Log.d("sensorChange", "change detected");
         }
     }
 
