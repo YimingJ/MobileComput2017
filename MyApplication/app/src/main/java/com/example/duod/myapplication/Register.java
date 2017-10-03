@@ -35,7 +35,14 @@ public class Register extends AppCompatActivity {
                 case R.id.button4:// ok button
                     register_check();
                     break;
-                case R.id.button3: // cancel button
+                case R.id.button3:// cancel button
+                    buttonCancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent=new Intent(Register.this,MainActivity.class);
+                            startActivity(intent);
+                        }
+                    });
                     break;
             }
         }
@@ -66,7 +73,7 @@ public class Register extends AppCompatActivity {
             Toast.makeText(this,"ConfirmPassword can't be empty",Toast.LENGTH_SHORT).show();
             return false;
         }
-        return ture;
+        return true;
     }
 
 }
