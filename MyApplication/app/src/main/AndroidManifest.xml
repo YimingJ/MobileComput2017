@@ -24,7 +24,11 @@
         <activity android:name=".Login" />
         <activity android:name=".MainInterface" />
         <activity android:name=".Exercise" />
-        <activity android:name=".Exercise1"></activity>
+        <activity android:name=".Exercise1" />
+        <activity android:name=".LoseWeight" />
+        <activity android:name=".Yoga" />
+        <activity android:name=".Stretch" />
+        <activity android:name=".Strength"></activity>
     </application>
 
 </manifest>
