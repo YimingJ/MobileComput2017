@@ -9,28 +9,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.security.Policy;
 
 public class MainInterface extends AppCompatActivity {
-    Button homeButton,exceButton;
+    TextView me,exercise;
+    LinearLayout linearLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_interface);
-        homeButton=(Button)findViewById(R.id.button7);
-        exceButton=(Button)findViewById(R.id.button8);
-        homeButton.setHeight(200);
-        homeButton.setWidth(450);
-        exceButton.setHeight(200);
-        exceButton.setWidth(450);
-        exceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainInterface.this,Exercise1.class);
-                startActivity(intent);
-            }
-        });
+       linearLayout =(LinearLayout)findViewById(R.id.linearLayout);
+        me=(TextView)findViewById(R.id.textView3);
+        exercise=(TextView)findViewById(R.id.textView2);
+//        welcome=(TextView)findViewById(R.id.textView4);
+//        Intent intent=new Intent();
+//        String username = getIntent().getStringExtra("time");
+//        String username=intent.getStringExtra("time");
+//        welcome.setText("Welcome Back"+username);
+
         //homeButton.setCompoundDrawables(null,null,findImage(MainInterface.this,R.drawable.homeButton, Parameters.IMG_SMALL),null,null);
     }
    /* public static Drawable findImage(Context context,int id, int side){

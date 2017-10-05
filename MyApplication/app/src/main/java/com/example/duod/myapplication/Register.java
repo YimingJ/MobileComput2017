@@ -19,14 +19,12 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
-        Log.d("MyApp","I am activity 2");
         buttonCancel=(Button)findViewById(R.id.button3);
         buttonOk=(Button)findViewById(R.id.button4);
+        rUsername=(EditText)findViewById(R.id.editText4);
         rEmail=(EditText)findViewById(R.id.editText);
         rPwd=(EditText)findViewById(R.id.editText2);
-        rUsername=(EditText)findViewById(R.id.editText4);
         rConfirmPwd=(EditText)findViewById(R.id.editText5);
-
         buttonCancel.setOnClickListener(register_listener);
         buttonOk.setOnClickListener(register_listener);
         buttonOk.setHeight(100);
@@ -68,7 +66,8 @@ public class Register extends AppCompatActivity {
                 Toast.makeText(this,"Please input correct format of email",Toast.LENGTH_SHORT).show();
             }
             else{//todo database
-                Intent intent_register_login=new Intent(Register.this,Login.class);
+                Intent intent_register_login=new Intent(Register.this,MainInterface.class);
+                intent_register_login.putExtra("23",rUsername.getText().toString().trim());
                 startActivity(intent_register_login);}
         }
     }
