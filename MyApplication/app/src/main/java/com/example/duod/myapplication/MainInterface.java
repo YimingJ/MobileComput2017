@@ -16,9 +16,9 @@ import android.widget.TextView;
 import java.security.Policy;
 
 public class MainInterface extends AppCompatActivity {
-    TextView me,exercise,loseweight;
+    TextView me,exercise,loseweight,stretch,strength,yoga;
     LinearLayout linearLayout;
-    ImageView loseWeight;
+    ImageView loseWeight,Stretch,Strength,Yoga;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,14 @@ public class MainInterface extends AppCompatActivity {
         me=(TextView)findViewById(R.id.textView3);
         exercise=(TextView)findViewById(R.id.textView2);
         loseweight=(TextView)findViewById(R.id.textView4);
+        stretch=(TextView)findViewById(R.id.textView7);
+        strength=(TextView)findViewById(R.id.textView5);
+        yoga=(TextView)findViewById(R.id.textView6);
+
         loseWeight=(ImageView)findViewById(R.id.imageView2);
+        Stretch=(ImageView)findViewById(R.id.imageView4);
+        Strength=(ImageView)findViewById(R.id.imageView);
+        Yoga=(ImageView)findViewById(R.id.imageView3);
 
         loseWeight.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +47,45 @@ public class MainInterface extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(MainInterface.this,LoseWeight.class);
+                startActivity(intent);}
+        });
+
+        stretch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainInterface.this,Stretch.class);
+                startActivity(intent);}
+        });
+        Stretch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainInterface.this,Stretch.class);
+                startActivity(intent);}
+        });
+
+        strength.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainInterface.this,Strength.class);
+                startActivity(intent);}
+        });
+        Strength.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainInterface.this,Strength.class);
+                startActivity(intent);}
+        });
+
+        yoga.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainInterface.this,Yoga.class);
+                startActivity(intent);}
+        });
+        Yoga.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainInterface.this,Yoga.class);
                 startActivity(intent);}
         });
 }}
