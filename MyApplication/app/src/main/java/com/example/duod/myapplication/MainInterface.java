@@ -20,10 +20,14 @@ public class MainInterface extends AppCompatActivity {
         setContentView(R.layout.activity_main_interface);
         homeButton=(Button)findViewById(R.id.button7);
         exceButton=(Button)findViewById(R.id.button8);
+        homeButton.setHeight(200);
+        homeButton.setWidth(450);
+        exceButton.setHeight(200);
+        exceButton.setWidth(450);
         exceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainInterface.this,Exercise.class);
+                Intent intent=new Intent(MainInterface.this,Exercise1.class);
                 startActivity(intent);
             }
         });

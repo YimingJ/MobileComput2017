@@ -21,6 +21,10 @@ public class Login extends AppCompatActivity {
         buttonOk=(Button)findViewById(R.id.button6);
         lEmail=(EditText)findViewById(R.id.editText3);
         lPwd=(EditText)findViewById(R.id.editText6);
+        buttonOk.setHeight(100);
+        buttonOk.setWidth(350);
+        buttonCancel.setHeight(100);
+        buttonCancel.setWidth(350);
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

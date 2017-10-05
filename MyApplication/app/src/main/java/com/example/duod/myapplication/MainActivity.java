@@ -23,6 +23,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         button2=(Button)findViewById(R.id.button2);
+        textView=(TextView)findViewById(R.id.textView);
+
+        button.setHeight(100);
+        button.setWidth(350);
+        button2.setHeight(100);
+        button2.setWidth(350);
+
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,6 +37,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        textView=(TextView)findViewById(R.id.textView);
+
     }
 }

@@ -4,6 +4,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.webkit.WebSettings;
 import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -24,6 +25,7 @@ public class Exercise extends AppCompatActivity {
         videoView.setVideoURI(uri);
         videoView.start();
         videoView.requestFocus();
+        
     }
     class PlayerOnCompletionListener implements MediaPlayer.OnCompletionListener{
         public void onCompletion(MediaPlayer mediaPlayer){

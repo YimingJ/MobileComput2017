@@ -29,6 +29,10 @@ public class Register extends AppCompatActivity {
 
         buttonCancel.setOnClickListener(register_listener);
         buttonOk.setOnClickListener(register_listener);
+        buttonOk.setHeight(100);
+        buttonOk.setWidth(350);
+        buttonCancel.setHeight(100);
+        buttonCancel.setWidth(350);
     }
 
     View.OnClickListener register_listener= new View.OnClickListener() {
@@ -57,8 +61,7 @@ public class Register extends AppCompatActivity {
             String psw=rPwd.getText().toString().trim();
             String confirmPwd=rConfirmPwd.getText().toString().trim();
             String email=rEmail.getText().toString().trim();
-            if(!
-                    psw.equals(rConfirmPwd)){
+            if(!psw.equals(confirmPwd)){
                 Toast.makeText(this,"ConfrimPassword is not same with password",Toast.LENGTH_SHORT).show();
             }
             else if(!isEmail(email)){
@@ -89,7 +92,7 @@ public class Register extends AppCompatActivity {
         return true;
     }
     public boolean isEmail(String email){
-        Pattern p=Pattern.compile("\\w+@(\\w+.)+[a-z]{2,3}");
+        Pattern p =  Pattern.compile("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*");
         Matcher m=p.matcher(email);
         return m.matches();
     }
