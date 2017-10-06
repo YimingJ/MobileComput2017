@@ -93,7 +93,6 @@ public class TimerService extends IntentService implements SensorEventListener {
                 timerOn = intent.getBooleanExtra("timerOn", true);
             }
         }
-
 //        ResultReceiver receiver = intent.getParcelableExtra("receiver");
 //        int time = intent.getIntExtra("time", 0);
 //        for (int i = 0; i < time; i++) {

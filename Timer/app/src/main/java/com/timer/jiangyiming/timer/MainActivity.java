@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
 //        yText = (TextView)findViewById(R.id.yText);
 //        zText = (TextView)findViewById(R.id.zText);
         timerOn = (Button) findViewById(R.id.timerOn);
-
         Intent intent = new Intent(this, TimerService.class);
 //        intent.putExtra("time", 10);
 //        intent.putExtra("receiver", receiver);
