@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -43,7 +44,7 @@ import com.squareup.okhttp.OkHttpClient;
 
 import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.*;
 
-public class ToDoActivity extends Activity {
+public class MainActivity extends Activity {
 
     /**
      * Mobile Service Client reference
@@ -127,6 +128,8 @@ public class ToDoActivity extends Activity {
 
             // Load the items from the Mobile Service
             refreshItemsFromTable();
+            Intent intent = new Intent(this, TimerService.class);
+            startService(intent);
 
         } catch (MalformedURLException e) {
             createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
