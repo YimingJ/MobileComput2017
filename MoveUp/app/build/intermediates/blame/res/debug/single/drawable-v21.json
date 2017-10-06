@@ -1,18 +1,18 @@
 [
     {
-        "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
-        "source": "C:\\Users\\Duod\\.android\\build-cache\\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+        "merged": "/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/jiangyiming/.android/build-cache/e5c477db06d3205c9df468778f63746a57efd653/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
     },
     {
-        "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\Duod\\.android\\build-cache\\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
+        "merged": "/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
+        "source": "/Users/jiangyiming/.android/build-cache/e5c477db06d3205c9df468778f63746a57efd653/output/res/drawable-v21/notification_action_background.xml"
     },
     {
-        "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
-        "source": "C:\\Users\\Duod\\.android\\build-cache\\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
+        "merged": "/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/jiangyiming/.android/build-cache/e5c477db06d3205c9df468778f63746a57efd653/output/res/drawable-v21/abc_btn_colored_material.xml"
     },
     {
-        "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
-        "source": "C:\\Users\\Duod\\.android\\build-cache\\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\\output\\res\\drawable-v21\\notification_action_background.xml"
+        "merged": "/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
+        "source": "/Users/jiangyiming/.android/build-cache/e5c477db06d3205c9df468778f63746a57efd653/output/res/drawable-v21/abc_edit_text_material.xml"
     }
 ]
