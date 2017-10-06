@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -250,24 +251,23 @@ public class MainActivity extends Activity {
         // Create a new item
         final ToDoItem item = new ToDoItem();
 
-        item.setText(mTextNewToDo.getText().toString());
+        item.setText("fromMoveUp");
         item.setComplete(false);
-
         // Insert the new item
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
             @Override
             protected Void doInBackground(Void... params) {
                 try {
-                    final ToDoItem entity = addItemInTable(item);
-
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if(!entity.isComplete()){
-                                mAdapter.add(entity);
-                            }
-                        }
-                    });
+//                    final ToDoItem entity = addItemInTable(item);
+                    addItemInTable(item);
+//                    runOnUiThread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            if(!entity.isComplete()){
+//                                mAdapter.add(entity);
+//                            }
+//                        }
+//                    });
                 } catch (final Exception e) {
                     createAndShowDialogFromTask(e, "Error");
                 }
