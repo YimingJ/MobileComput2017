@@ -28,7 +28,7 @@
         <activity android:name=".LoseWeight" />
         <activity android:name=".Yoga" />
         <activity android:name=".Stretch" />
-        <activity android:name=".Strength"></activity>
+        <activity android:name=".Strength"/>
     </application>
 
 </manifest>

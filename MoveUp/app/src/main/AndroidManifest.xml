@@ -22,6 +22,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Register" />
+        <activity android:name=".Login" />
+        <activity android:name=".MainInterface" />
+        <activity android:name=".Exercise" />
+        <activity android:name=".Exercise1" />
+        <activity android:name=".LoseWeight" />
+        <activity android:name=".Yoga" />
+        <activity android:name=".Stretch" />
+        <activity android:name=".Strength"/>
         <service android:name=".TimerService"
             android:exported="false"/>
     </application>
