@@ -16,7 +16,7 @@ import android.widget.TextView;
 import java.security.Policy;
 
 public class MainInterface extends AppCompatActivity {
-    TextView me,exercise,loseweight,stretch,strength,yoga;
+    TextView me,exercise,suggestion,loseweight,stretch,strength,yoga;
     LinearLayout linearLayout;
     ImageView loseWeight,Stretch,Strength,Yoga;
 
@@ -25,18 +25,24 @@ public class MainInterface extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_interface);
         linearLayout =(LinearLayout)findViewById(R.id.linearLayout);
-        me=(TextView)findViewById(R.id.textView3);
-        exercise=(TextView)findViewById(R.id.textView2);
+        me=(TextView)findViewById(R.id.textView16);
+        exercise=(TextView)findViewById(R.id.textView3);
+        suggestion=(TextView)findViewById(R.id.textView15) ;
         loseweight=(TextView)findViewById(R.id.textView4);
         stretch=(TextView)findViewById(R.id.textView7);
         strength=(TextView)findViewById(R.id.textView5);
         yoga=(TextView)findViewById(R.id.textView6);
-
         loseWeight=(ImageView)findViewById(R.id.imageView2);
         Stretch=(ImageView)findViewById(R.id.imageView4);
         Strength=(ImageView)findViewById(R.id.imageView);
         Yoga=(ImageView)findViewById(R.id.imageView3);
 
+        exercise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainInterface.this,MainInterface.class);
+                startActivity(intent);}
+        });
         loseWeight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

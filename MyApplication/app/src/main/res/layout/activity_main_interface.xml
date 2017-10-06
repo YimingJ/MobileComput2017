@@ -10,49 +10,6 @@
     app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
     android:layout_marginBottom="0dp">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-
-        android:orientation="horizontal"
-        android:weightSum="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp">
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="170dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.53"
-            android:drawableTop="@drawable/exercise"
-            android:textColor="@color/dark"
-            android:gravity="center"
-            android:text="Exercise"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="170dp"
-            android:textColor="@color/dark"
-            android:layout_height="match_parent"
-            android:layout_weight="0.22"
-            android:drawableTop="@drawable/me"
-            android:gravity="center"
-            android:text="Me"
-            android:textSize="20dp" />
-    </LinearLayout>
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
@@ -67,7 +24,9 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.177"
-        app:layout_constraintVertical_bias="0.169" />
+        app:layout_constraintVertical_bias="0.169"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -85,7 +44,9 @@
         android:layout_marginLeft="8dp"
         app:layout_constraintVertical_bias="0.397"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.203" />
+        app:layout_constraintHorizontal_bias="0.203"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -101,7 +62,9 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.911"
-        app:layout_constraintVertical_bias="0.169" />
+        app:layout_constraintVertical_bias="0.169"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -117,7 +80,9 @@
         app:layout_constraintVertical_bias="0.658"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginStart="52dp"
+        android:layout_marginEnd="8dp" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -133,7 +98,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
         app:layout_constraintHorizontal_bias="0.911"
-        app:layout_constraintVertical_bias="0.658" />
+        app:layout_constraintVertical_bias="0.658"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <TextView
         android:id="@+id/textView5"
@@ -151,7 +118,9 @@
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintHorizontal_bias="0.845"
-        app:layout_constraintVertical_bias="0.396" />
+        app:layout_constraintVertical_bias="0.396"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <TextView
         android:id="@+id/textView6"
@@ -169,7 +138,9 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.242"
-        app:layout_constraintVertical_bias="0.785" />
+        app:layout_constraintVertical_bias="0.785"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <TextView
         android:id="@+id/textView7"
@@ -187,6 +158,60 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.812"
-        app:layout_constraintVertical_bias="0.785" />
+        app:layout_constraintVertical_bias="0.785"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+
+        android:layout_marginStart="8dp"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="81dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="0.58"
+            android:text="Exercise"
+            android:textColor="@color/dark"
+            android:drawableTop="@drawable/exercise"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="111dp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33"
+            android:text="Suggestion"
+            android:drawableTop="@drawable/suggestion"
+            android:textColor="@color/dark"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="110dp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:text="Me"
+            android:drawableTop="@drawable/me"
+            android:textSize="20dp"
+            android:textColor="@color/dark"
+            android:layout_weight="0.16" />
+    </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>
