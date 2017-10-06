@@ -15,14 +15,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button=(Button)findViewById(R.id.button);
+        button2=(Button)findViewById(R.id.button2);
+        textView=(TextView)findViewById(R.id.textView);
+        button.setHeight(100);
+        button.setWidth(350);
+        button2.setHeight(100);
+        button2.setWidth(350);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            Intent intent=new Intent(MainActivity.this,SignIn.class);
+            Intent intent=new Intent(MainActivity.this,Register.class);
+            startActivity(intent);
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,Login.class);
                 startActivity(intent);
             }
         });
-        button2=(Button)findViewById(R.id.button2);
-        textView=(TextView)findViewById(R.id.textView);
+
     }
 }
