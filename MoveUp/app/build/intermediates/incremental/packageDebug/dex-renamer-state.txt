@@ -1,0 +1,7 @@
+#Fri Oct 06 22:33:24 AEDT 2017
+base.0=C\:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_95182bd0bd4c8590eba1af4df86a3469e249351f
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=C\:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_a34f2ab18aca93e71f470038c0eb1a84352c1601\\classes.dex
+base.1=C\:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_a34f2ab18aca93e71f470038c0eb1a84352c1601
+file.0=C\:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_95182bd0bd4c8590eba1af4df86a3469e249351f\\classes.dex

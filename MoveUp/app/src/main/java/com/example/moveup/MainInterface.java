@@ -19,7 +19,7 @@ public class MainInterface extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_interface);
         linearLayout =(LinearLayout)findViewById(R.id.linearLayout);
-        me=(TextView)findViewById(R.id.textView16);
+        me=(TextView)findViewById(R.id.textView2);
         exercise=(TextView)findViewById(R.id.textView3);
         suggestion=(TextView)findViewById(R.id.textView15) ;
         loseweight=(TextView)findViewById(R.id.textView4);

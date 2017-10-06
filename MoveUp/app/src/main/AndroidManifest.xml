@@ -11,7 +11,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/ic_launcher_web"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
 
@@ -25,8 +25,6 @@
         <activity android:name=".Register" />
         <activity android:name=".Login" />
         <activity android:name=".MainInterface" />
-        <activity android:name=".Exercise" />
-        <activity android:name=".Exercise1" />
         <activity android:name=".LoseWeight" />
         <activity android:name=".Yoga" />
         <activity android:name=".Stretch" />

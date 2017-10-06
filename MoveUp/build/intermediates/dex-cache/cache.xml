@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\.android\build-cache\9f1058e12be8da66e4acbb58c0889b9a800550fb\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_02d4d9275566a51438e5efbf52f9dbb2453f1868\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\.android\build-cache\d162562fa0177faf94ad527be4698e0b0f9ced8e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="952944218ecedea1554a513dec0c14d570642843">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1cd98347fd8980ec20c7f13089b82dc1c5ad0649\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="fe758f49e2c9e3c63884161d6c1ec70d3539f464">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_95182bd0bd4c8590eba1af4df86a3469e249351f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\.android\build-cache\02e1837501d977c07bf451bdbbe54fc35511cfb1\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9fea8ccbdcf942fb97bfb17c66e422cd933db905\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\.gradle\caches\modules-2\files-2.1\com.microsoft.azure\azure-notifications-handler\1.0.1\c322af100020e6db539f2aa367698d4b88fc453f\azure-notifications-handler-1.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="c322af100020e6db539f2aa367698d4b88fc453f">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\azure-notifications-handler-1.0.1_456d87c8afa89c9686281aeed26b00cb053fbfcc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\26.0.0-alpha1\support-annotations-26.0.0-alpha1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-26.0.0-alpha1_cefe1428c86f063b77bceafe1787301b8f0f1778\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\.android\build-cache\76b725ff0fed555daaf84b5fa824113dbf3bb8b0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_44ce7a72072452d47115f1280a85bff2757e1d42\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.6.0_4a666af991bf9dd0bb73b30964095d5c17b114ef\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.5.0\4de2b4ed3445c37ec1720a7d214712e845a24636\okhttp-2.5.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="4de2b4ed3445c37ec1720a7d214712e845a24636">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-2.5.0_0bca86aa01cad18d181e98a809be092e5a3f1626\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a34f2ab18aca93e71f470038c0eb1a84352c1601\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\.android\build-cache\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6be31228470bad4d847d1a357a6993bf3013bc6d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\.android\build-cache\86dbafd7de4616c0624e5b749fffc33c95876d0c\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4f0a19a8081f5b48848fbe55fd8833c80190710c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3\5fc52c41ef0239d1093a1eb7c3697036183677ce\gson-2.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.3_7c0b04885fb01e8ee914b94cde460a800a9745e0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\.android\build-cache\ac53120d794e76c030736597c38070317c71cb3d\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="b5ed05574ca7f8eeba9980f82e7acdd610f1b44b">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_766e5f295ea1e57e1c6c89240d682ee2c6208da9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\.android\build-cache\ef2ba2dc84bd99f183d1404a743a4da27b5b8993\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3afe2f9df5f90b5edefef11e4fa1baca969baee1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\com\google\guava\guava\18.0\guava-18.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="cce0823396aa693798f8882e64213b1772032b09">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\guava-18.0_23ae9d619c9ad952ac11ce7bff78df802e3e98c2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\.android\build-cache\a091bbff9cc0aa77cad6646744f338338ace5e31\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="9935891f23923f39d002087085d9696568a9f657">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f5aa237267af95cbbcd9689c900a35bd53bfb476\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_67d08656879fb328ea7b2fd35775520db1b1bb05\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\.android\build-cache\196acaabdb6845620df10ff2ab85297af53f944f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a5e24a641adc1c98113c05631ddfc05be0a7b202\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Duod\.android\build-cache\fe5422db7bf2f4a9c9a466c623a2af656f6d9239\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_988ed1e646d8e5a5a62ca7c74fd8472dc50c58b9\classes.dex" />
+    </item>
+
+</items>

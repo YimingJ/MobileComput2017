@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media_narrow.xml",
+        "source": "C:\\Users\\Duod\\.android\\build-cache\\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\\output\\res\\layout-v11\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media.xml",
+        "source": "C:\\Users\\Duod\\.android\\build-cache\\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\\output\\res\\layout-v11\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_media_action.xml",
+        "source": "C:\\Users\\Duod\\.android\\build-cache\\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\\output\\res\\layout-v11\\notification_media_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_media_cancel_action.xml",
+        "source": "C:\\Users\\Duod\\.android\\build-cache\\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\\output\\res\\layout-v11\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media_custom.xml",
+        "source": "C:\\Users\\Duod\\.android\\build-cache\\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\\output\\res\\layout-v11\\notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media_narrow_custom.xml",
+        "source": "C:\\Users\\Duod\\.android\\build-cache\\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\\output\\res\\layout-v11\\notification_template_big_media_narrow_custom.xml"
+    }
+]
