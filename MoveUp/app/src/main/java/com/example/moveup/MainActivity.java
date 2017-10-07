@@ -46,15 +46,7 @@ import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperati
 
 public class MainActivity extends Activity {
 
-    /**
-     * Mobile Service Client reference
-     */
-    private MobileServiceClient mClient;
-
-    /**
-     * Mobile Service Table used to access data
-     */
-    private MobileServiceTable<ToDoItem> mToDoTable;
+    MoveUpConstant constant;
 
     Button button, button2;
     TextView textView;
@@ -93,27 +85,7 @@ public class MainActivity extends Activity {
 //        mProgressBar.setVisibility(ProgressBar.GONE);
 
         try {
-            // Create the Mobile Service Client instance, using the provided
-
-            // Mobile Service URL and key
-            mClient = new MobileServiceClient(
-                    "https://moveup.azurewebsites.net",
-                    this);
-
-            // Extend timeout from default of 10s to 20s
-            mClient.setAndroidHttpClientFactory(new OkHttpClientFactory() {
-                @Override
-                public OkHttpClient createOkHttpClient() {
-                    OkHttpClient client = new OkHttpClient();
-                    client.setReadTimeout(20, TimeUnit.SECONDS);
-                    client.setWriteTimeout(20, TimeUnit.SECONDS);
-                    return client;
-                }
-            });
-
-            // Get the Mobile Service Table instance to use
-
-            mToDoTable = mClient.getTable(ToDoItem.class);
+            constant = new MoveUpConstant(this);
 
             // Offline Sync
             //mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
@@ -148,26 +120,16 @@ public class MainActivity extends Activity {
                 public void onClick(final View v) {
 
                     final ToDoItem item = new ToDoItem();
-                    item.setText("mamamamam");
+                    item.setText("lalalala");
 
                     new AsyncTask<Void, Void, Void>() {
 
                         @Override
                         protected Void doInBackground(Void... params) {
                             try {
-                                List<ToDoItem> result = mToDoTable.where().field("text").eq(val("mamamamam")).execute().get();
-                                mToDoTable.delete(result.get(0));
-//                                mToDoTable.insert(item).get();
-                                runOnUiThread(new Runnable() {
-
-                                    @Override
-                                    public void run() {
-                                        mAdapter.clear();
-//                                        for (ToDoItem item : result) {
-//                                            mAdapter.add(item);
-//                                        }
-                                    }
-                                });
+                                List<ToDoItem> result = constant.getmToDoTable().where().field("text").eq(val("lalalala")).execute().get();
+                                constant.getmToDoTable().delete(result.get(0));
+//                                constant.getmToDoTable().insert(item).get();
                             } catch (Exception exception) {
                                 createAndShowDialog(exception, "Error");
                             }
@@ -224,7 +186,7 @@ public class MainActivity extends Activity {
      * @param item The item to mark
      */
     public void checkItem(final ToDoItem item) {
-        if (mClient == null) {
+        if (constant.getmClient() == null) {
             return;
         }
 
@@ -263,7 +225,7 @@ public class MainActivity extends Activity {
      * @param item The item to mark
      */
     public void checkItemInTable(ToDoItem item) throws ExecutionException, InterruptedException {
-        mToDoTable.update(item).get();
+        constant.getmToDoTable().update(item).get();
     }
 
     /**
@@ -272,7 +234,7 @@ public class MainActivity extends Activity {
      * @param view The view that originated the call
      */
     public void addItem(View view) {
-        if (mClient == null) {
+        if (constant.getmClient() == null) {
             return;
         }
 
@@ -314,7 +276,7 @@ public class MainActivity extends Activity {
      * @param item The item to Add
      */
     public ToDoItem addItemInTable(ToDoItem item) throws ExecutionException, InterruptedException {
-        ToDoItem entity = mToDoTable.insert(item).get();
+        ToDoItem entity = constant.getmToDoTable().insert(item).get();
         return entity;
     }
 
@@ -362,7 +324,7 @@ public class MainActivity extends Activity {
      */
 
     private List<ToDoItem> refreshItemsFromMobileServiceTable() throws ExecutionException, InterruptedException {
-        return mToDoTable.where().field("complete").
+        return constant.getmToDoTable().where().field("complete").
                 eq(val(false)).execute().get();
     }
 
@@ -393,12 +355,12 @@ public class MainActivity extends Activity {
             protected Void doInBackground(Void... params) {
                 try {
 
-                    MobileServiceSyncContext syncContext = mClient.getSyncContext();
+                    MobileServiceSyncContext syncContext = constant.getmClient().getSyncContext();
 
                     if (syncContext.isInitialized())
                         return null;
 
-                    SQLiteLocalStore localStore = new SQLiteLocalStore(mClient.getContext(), "OfflineStore", null, 1);
+                    SQLiteLocalStore localStore = new SQLiteLocalStore(constant.getmClient().getContext(), "OfflineStore", null, 1);
 
                     Map<String, ColumnDataType> tableDefinition = new HashMap<String, ColumnDataType>();
                     tableDefinition.put("id", ColumnDataType.String);
