@@ -28,6 +28,7 @@ public class TimerService extends IntentService implements SensorEventListener {
     private boolean stopFlag;
     private static int counter;
     private boolean timerOn;
+    private String userName;
 
     private double lastAccX;
     private double lastAccY;
@@ -78,6 +79,7 @@ public class TimerService extends IntentService implements SensorEventListener {
             long currentTime = SystemClock.uptimeMillis();
             long interval = currentTime - startTime;
             timeInterval = intent.getIntExtra("timeInterval", 10000);
+            userName = intent.getStringExtra("userName");
             if (interval > timeInterval) {
                 Log.d("lovelytimer", "" + interval);
                 sendNotification();
@@ -127,6 +129,7 @@ public class TimerService extends IntentService implements SensorEventListener {
 
         Notification notification = null;
         Intent intent1 = new Intent(this, Me.class);
+        intent1.putExtra("userName",userName);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {

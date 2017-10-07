@@ -21,12 +21,12 @@ public class Me extends Activity {
     EditText height, weight;
     EditText timeInterval;
     TextView showUsername, showBMI;
-
+    String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_me);
-        final String username = getIntent().getStringExtra("userName");
+        username = getIntent().getStringExtra("userName");
         showUsername = (TextView) findViewById(R.id.showUsername);
         String showUser = "Hello, " +username;
         showUsername.setText(showUser);
@@ -141,21 +141,23 @@ public class Me extends Activity {
         switchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (switchBtn.getText().equals("Turn Off")) {
-                    switchBtn.setText("Turn On");
+                if (switchBtn.getText().equals("Switch Off")) {
+                    switchBtn.setText("Switch On");
                     intent.putExtra("timerOn", true);
+                    intent.putExtra("userName",username);
                     stopService(intent);
                 } else {
                     int time;
-                    switchBtn.setText("Turn Off");
+                    switchBtn.setText("Switch Off");
                     String timeS = timeInterval.getText().toString();
                     if (timeS.trim().equals("")) {
                         time = 60 * 60 * 1000;
                     } else {
                         time = Integer.parseInt(timeS) * 60 * 1000;
                     }
-                    intent.putExtra("Turn Off", false);
+                    intent.putExtra("timerOn", false);
                     intent.putExtra("timeInterval", time);
+                    intent.putExtra("userName",username);
                     startService(intent);
                 }
             }
