@@ -140,8 +140,8 @@ public class TimerService extends IntentService implements SensorEventListener {
                     .build();
         } else {
             notification = new Notification.Builder(this)
-                    .setContentTitle("Hey~Hey~Hey")
-                    .setContentText("Time for exsercise now!!")
+                    .setContentTitle("Move up")
+                    .setContentText("Don't be a couch potato!")
                     .setSmallIcon(R.drawable.ic_launcher)
                     .setAutoCancel(true)
                     .setContentIntent(pendingIntent)
