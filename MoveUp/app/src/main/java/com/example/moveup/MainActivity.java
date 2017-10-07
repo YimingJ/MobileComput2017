@@ -50,12 +50,6 @@ public class MainActivity extends Activity {
 
     Button button, button2;
     TextView textView;
-    //Offline Sync
-    /**
-     * Mobile Service Table used to access and Sync data
-     */
-    //private MobileServiceSyncTable<ToDoItem> mToDoTable;
-
     /**
      * Adapter to sync the items list with the view
      */
@@ -65,11 +59,6 @@ public class MainActivity extends Activity {
      * EditText containing the "New To Do" text
      */
     private EditText mTextNewToDo;
-
-    /**
-     * Progress spinner to use for table operations
-     */
-//    private ProgressBar mProgressBar;
 
     /**
      * Initializes the activity
@@ -86,7 +75,7 @@ public class MainActivity extends Activity {
 
         try {
             constant = new MoveUpConstant(this);
-            constant.setConstant(constant);
+            MoveUpConstant.setConstant(constant);
 
             // Offline Sync
             //mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
@@ -108,9 +97,9 @@ public class MainActivity extends Activity {
 
 
             //新加进来的
-            button = (Button) findViewById(R.id.button);
-            button2 = (Button) findViewById(R.id.button2);
-            textView = (TextView) findViewById(R.id.textView);
+            button = findViewById(R.id.button);
+            button2 = findViewById(R.id.button2);
+            textView = findViewById(R.id.textView);
             button.setHeight(100);
             button.setWidth(350);
             button2.setHeight(100);
@@ -119,25 +108,6 @@ public class MainActivity extends Activity {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View v) {
-//
-//                    final ToDoItem item = new ToDoItem();
-//                    item.setText("lalalala");
-//
-//                    new AsyncTask<Void, Void, Void>() {
-//
-//                        @Override
-//                        protected Void doInBackground(Void... params) {
-//                            try {
-//                                List<ToDoItem> result = constant.getmToDoTable().where().field("text").eq(val("lalalala")).execute().get();
-//                                constant.getmToDoTable().delete(result.get(0));
-////                                constant.getmToDoTable().insert(item).get();
-//                            } catch (Exception exception) {
-//                                createAndShowDialog(exception, "Error");
-//                            }
-//                            return null;
-//                        }
-//                    }.execute();
-
                     Intent intent = new Intent(MainActivity.this, Register.class);
                     startActivity(intent);
                 }
@@ -146,14 +116,11 @@ public class MainActivity extends Activity {
             button2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     Intent intent = new Intent(MainActivity.this, Login.class);
                     startActivity(intent);
                 }
             });
 
-        } catch (MalformedURLException e) {
-            createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
         } catch (Exception e) {
             createAndShowDialog(e, "Error");
         }

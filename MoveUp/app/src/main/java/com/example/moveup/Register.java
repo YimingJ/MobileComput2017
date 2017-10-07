@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,18 +16,19 @@ import java.util.regex.Pattern;
 import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.val;
 
 public class Register extends Activity {
-    Button buttonCancel,buttonOk;
-    EditText rEmail,rPwd,rUsername,rConfirmPwd;
+    Button buttonCancel, buttonOk;
+    EditText rEmail, rPwd, rUsername, rConfirmPwd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
-        buttonCancel=(Button)findViewById(R.id.button3);
-        buttonOk=(Button)findViewById(R.id.button4);
-        rUsername=(EditText)findViewById(R.id.editText4);
-        rEmail=(EditText)findViewById(R.id.editText);
-        rPwd=(EditText)findViewById(R.id.editText2);
-        rConfirmPwd=(EditText)findViewById(R.id.editText5);
+        buttonCancel = (Button) findViewById(R.id.button3);
+        buttonOk = (Button) findViewById(R.id.button4);
+        rUsername = (EditText) findViewById(R.id.editText4);
+        rEmail = (EditText) findViewById(R.id.editText);
+        rPwd = (EditText) findViewById(R.id.editText2);
+        rConfirmPwd = (EditText) findViewById(R.id.editText5);
         buttonCancel.setOnClickListener(register_listener);
         buttonOk.setOnClickListener(register_listener);
         buttonOk.setHeight(100);
@@ -35,10 +37,10 @@ public class Register extends Activity {
         buttonCancel.setWidth(350);
     }
 
-    View.OnClickListener register_listener= new View.OnClickListener() {
+    View.OnClickListener register_listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch(v.getId()){
+            switch (v.getId()) {
                 case R.id.button4:// ok button
                     register_check();
                     break;
@@ -46,7 +48,7 @@ public class Register extends Activity {
                     buttonCancel.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent=new Intent(Register.this,MainActivity.class);
+                            Intent intent = new Intent(Register.this, MainActivity.class);
                             startActivity(intent);
                         }
                     });
@@ -55,19 +57,17 @@ public class Register extends Activity {
         }
     };
 
-    public void register_check(){
-        if(isValid()){
-            String userName=rUsername.getText().toString().trim();
-            String psw=rPwd.getText().toString().trim();
-            String confirmPwd=rConfirmPwd.getText().toString().trim();
-            String email=rEmail.getText().toString().trim();
-            if(!psw.equals(confirmPwd)){
-                Toast.makeText(this,"ConfrimPassword is not same with password", Toast.LENGTH_SHORT).show();
-            }
-            else if(!isEmail(email)){
-                Toast.makeText(this,"Please input correct format of email", Toast.LENGTH_SHORT).show();
-            }
-            else{//todo database
+    public void register_check() {
+        if (isValid()) {
+            String userName = rUsername.getText().toString().trim();
+            String psw = rPwd.getText().toString().trim();
+            String confirmPwd = rConfirmPwd.getText().toString().trim();
+            String email = rEmail.getText().toString().trim();
+            if (!psw.equals(confirmPwd)) {
+                Toast.makeText(this, "ConfrimPassword is not same with password", Toast.LENGTH_SHORT).show();
+            } else if (!isEmail(email)) {
+                Toast.makeText(this, "Please input correct format of email", Toast.LENGTH_SHORT).show();
+            } else {//todo database
                 final User user = new User();
                 user.setuName(userName);
                 user.setuPwd(psw);
@@ -78,7 +78,7 @@ public class Register extends Activity {
                     @Override
                     protected Void doInBackground(Void... params) {
                         try {
-                                MoveUpConstant.getInstance().getUserTable().insert(user).get();
+                            MoveUpConstant.getInstance().getUserTable().insert(user).get();
                         } catch (Exception exception) {
                             MainActivity mainActivity = new MainActivity();
                             mainActivity.createAndShowDialog(exception, "Error");
@@ -86,33 +86,33 @@ public class Register extends Activity {
                         return null;
                     }
                 }.execute();
-                Intent intent_register_login=new Intent(Register.this,MainInterface.class);
-                intent_register_login.putExtra("23",rUsername.getText().toString().trim());
-                startActivity(intent_register_login);}
+                Intent intent_register_login = new Intent(Register.this, MainInterface.class);
+                intent_register_login.putExtra("23", rUsername.getText().toString().trim());
+                startActivity(intent_register_login);
+            }
         }
     }
-    public boolean isValid(){
-        if(rUsername.getText().toString().trim().equals("")){
-            Toast.makeText(this,"Username can't be empty", Toast.LENGTH_SHORT).show();
+
+    public boolean isValid() {
+        if (rUsername.getText().toString().trim().equals("")) {
+            Toast.makeText(this, "Username can't be empty", Toast.LENGTH_SHORT).show();
             return false;
-        }
-        else if(rEmail.getText().toString().trim().equals("")){
-            Toast.makeText(this,"Email can't be empty", Toast.LENGTH_SHORT).show();//// TODO: 2017/10/3
+        } else if (rEmail.getText().toString().trim().equals("")) {
+            Toast.makeText(this, "Email can't be empty", Toast.LENGTH_SHORT).show();//// TODO: 2017/10/3
             return false;
-        }
-        else if(rPwd.getText().toString().trim().equals("")){
-            Toast.makeText(this,"Password can't be empty", Toast.LENGTH_SHORT).show();//// TODO: 2017/10/3
+        } else if (rPwd.getText().toString().trim().equals("")) {
+            Toast.makeText(this, "Password can't be empty", Toast.LENGTH_SHORT).show();//// TODO: 2017/10/3
             return false;
-        }
-        else if(rConfirmPwd.getText().toString().trim().equals("")){
-            Toast.makeText(this,"ConfirmPassword can't be empty", Toast.LENGTH_SHORT).show();
+        } else if (rConfirmPwd.getText().toString().trim().equals("")) {
+            Toast.makeText(this, "ConfirmPassword can't be empty", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
     }
-    public boolean isEmail(String email){
-        Pattern p =  Pattern.compile("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*");
-        Matcher m=p.matcher(email);
+
+    public boolean isEmail(String email) {
+        Pattern p = Pattern.compile("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*");
+        Matcher m = p.matcher(email);
         return m.matches();
     }
 }

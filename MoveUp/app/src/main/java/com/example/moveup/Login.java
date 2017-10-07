@@ -59,14 +59,14 @@ public class Login extends Activity {
             protected Void doInBackground(Void... params) {
                 try {
                     List<User> result = MoveUpConstant.getInstance().getUserTable().where().field("email").eq(val(userEmail)).execute().get();
-                    if (result.size()==1 && result.get(0).getuPwd().equals(userPsw)){
+                    if (result.size() == 1 && result.get(0).getuPwd().equals(userPsw)) {
                         Intent intent = new Intent(Login.this, MainInterface.class);
                         startActivity(intent);
-                    }else {
+                    } else {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(Login.this,"Please input your correct email and password",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login.this, "Please input your correct email and password", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
