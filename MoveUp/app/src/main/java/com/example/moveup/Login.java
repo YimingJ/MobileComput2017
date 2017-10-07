@@ -61,6 +61,7 @@ public class Login extends Activity {
                     List<User> result = MoveUpConstant.getInstance().getUserTable().where().field("email").eq(val(userEmail)).execute().get();
                     if (result.size() == 1 && result.get(0).getuPwd().equals(userPsw)) {
                         Intent intent = new Intent(Login.this, MainInterface.class);
+                        intent.putExtra("userName",result.get(0).getuName());
                         startActivity(intent);
                     } else {
                         runOnUiThread(new Runnable() {

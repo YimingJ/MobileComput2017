@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -16,22 +17,27 @@ import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperati
 //import com.example.zumoappname.*;
 
 public class Me extends Activity {
-    Button switchBtn, ok, logOut;
+    Button switchBtn, setHeight, logOut;
     EditText height, weight;
     EditText timeInterval;
+    TextView showUsername, showBMI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_me);
         final String username = getIntent().getStringExtra("userName");
+        showUsername = (TextView) findViewById(R.id.showUsername);
+        String showUser = "Hello, " +username;
+        showUsername.setText(showUser);
+        showBMI = (TextView) findViewById(R.id.showBMI);
         switchBtn = (Button) findViewById(R.id.button7);
-        ok = (Button) findViewById(R.id.button8);
+        setHeight = (Button) findViewById(R.id.button8);
         logOut = (Button) findViewById(R.id.button9);
         timeInterval = (EditText) findViewById(R.id.timeInterval);
         height = (EditText) findViewById(R.id.editText7);
         weight = (EditText) findViewById(R.id.editText8);
-        Intent intent = new Intent(this, TimerService.class);
+        final Intent intent = new Intent(this, TimerService.class);
 //        startService(intent);
         changeTimerMode(intent);
 
@@ -49,6 +55,12 @@ public class Me extends Activity {
                             public void run() {
                                 height.setText(heightS);
                                 weight.setText(weightS);
+                                if (!heightS.equals("0") && !weightS.equals("0")) {
+                                    Double BMI = calculateBMI(Integer.parseInt(heightS), Integer.parseInt(weightS));
+                                    String BMIS = "BMI: "+String.format("%.2f", BMI);
+                                    showBMI.setText(BMIS);
+                                }
+
                             }
                         });
                     }
@@ -62,17 +74,49 @@ public class Me extends Activity {
         }.execute();
 
 
-        ok.setOnClickListener(new View.OnClickListener() {
+        setHeight.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                String heightS =height.getText().toString();
-                String weightS = weight.getText().toString();
+                final String heightS = height.getText().toString();
+                final String weightS = weight.getText().toString();
                 int heightInt = Integer.parseInt(heightS);
                 int weightInt = Integer.parseInt(weightS);
-                if (heightInt == 0 || weightInt ==0){
+
+                if (heightInt == 0 || weightInt == 0) {
                     Toast.makeText(Me.this, "Please input your correct height and weight", Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
+                    new AsyncTask<Void, Void, Void>() {
+
+                        @Override
+                        protected Void doInBackground(Void... params) {
+                            try {
+                                List<User> result = MoveUpConstant.getInstance().getUserTable().where().field("username").eq(val(username)).execute().get();
+                                User user = result.get(0);
+                                user.setuWeight(weightS);
+                                user.setuHeight(heightS);
+                                MoveUpConstant.getInstance().getUserTable().update(user).get();
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            height.setText(heightS);
+                                            weight.setText(weightS);
+                                            if (!heightS.equals("0") && !weightS.equals("0")) {
+                                                Double BMI = calculateBMI(Integer.parseInt(heightS), Integer.parseInt(weightS));
+                                                showBMI.setText(String.valueOf(BMI));
+                                            }
+
+                                        }
+                                    });
+                            } catch (Exception exception) {
+                                MainActivity mainActivity = new MainActivity();
+                                mainActivity.createAndShowDialog(exception, "Error");
+                            }
+                            return null;
+                        }
+
+                    }.execute();
+
                     String suggestion = handleData(heightInt, weightInt);
                     Intent intent = new Intent();
                     Bundle bundle = new Bundle();
@@ -117,9 +161,13 @@ public class Me extends Activity {
         });
     }
 
-    public String handleData(int height, int weight) {
+    public Double calculateBMI(int height, int weight) {
         double height1 = (double) (height) / 100;
-        double BMI = ((double) weight) / (height1 * height1);
+        return ((double) weight) / (height1 * height1);
+    }
+
+    public String handleData(int height, int weight) {
+        Double BMI = calculateBMI(height, weight);
         String suggestion;
         if (BMI < 18.5) {
             suggestion = "Do level 1";
