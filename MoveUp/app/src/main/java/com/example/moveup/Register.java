@@ -72,6 +72,8 @@ public class Register extends Activity {
                 user.setuName(userName);
                 user.setuPwd(psw);
                 user.setuEmail(email);
+                user.setuHeight("0");
+                user.setuWeight("0");
 
                 new AsyncTask<Void, Void, Void>() {
 
@@ -87,7 +89,7 @@ public class Register extends Activity {
                     }
                 }.execute();
                 Intent intent_register_login = new Intent(Register.this, MainInterface.class);
-                intent_register_login.putExtra("23", rUsername.getText().toString().trim());
+                intent_register_login.putExtra("userName", rUsername.getText().toString().trim());
                 startActivity(intent_register_login);
             }
         }

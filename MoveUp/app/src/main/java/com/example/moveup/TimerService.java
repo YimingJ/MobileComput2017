@@ -77,7 +77,7 @@ public class TimerService extends IntentService implements SensorEventListener {
         while (!stopFlag) {
             long currentTime = SystemClock.uptimeMillis();
             long interval = currentTime - startTime;
-            timeInterval = intent.getIntExtra("timeInterval",10000);
+            timeInterval = intent.getIntExtra("timeInterval", 10000);
             if (interval > timeInterval) {
                 Log.d("lovelytimer", "" + interval);
                 sendNotification();
@@ -126,13 +126,14 @@ public class TimerService extends IntentService implements SensorEventListener {
         }
 
         Notification notification = null;
-        Intent intent1 = new Intent(this, MainActivity.class);
+        Intent intent1 = new Intent(this, Me.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            long totalTime = counter * (timeInterval / 1000 * 60);
             notification = new Notification.Builder(this, id)
-                    .setContentTitle("Hey~Hey~Hey")
-                    .setContentText("Time for exsercise now!!")
+                    .setContentTitle("Let's move up")
+                    .setContentText("Don't be a couch potato!!")
                     .setSmallIcon(R.drawable.ic_launcher)
                     .setAutoCancel(true)
                     .setContentIntent(pendingIntent)
