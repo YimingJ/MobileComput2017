@@ -1,15 +1,21 @@
 package com.example.moveup;
 
-import android.app.Activity;
+import android.app.*;
+import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Bundle;
+import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
+import android.os.*;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashMap;
 import java.util.List;
 
 import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.val;
@@ -22,9 +28,26 @@ public class Me extends Activity {
     EditText timeInterval;
     TextView showUsername, showBMI;
     String username;
+
+    private Handler handler;
+    private HandlerThread handlerThread;
+    private GravitySensorListener gravitySensorListener;
+    private Sensor mySensor;
+    private SensorManager sensorManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initIntent();
+        gravitySensorListener = GravitySensorListener.getInstance();
+        handlerThread = new HandlerThread("timerServiceHandlerThread");
+        handlerThread.start();
+        handler = new Handler(handlerThread.getLooper());
+
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        //accelerometer
+        mySensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        //sensor listener
+        sensorManager.registerListener(gravitySensorListener, mySensor, SensorManager.SENSOR_DELAY_NORMAL);
         setContentView(R.layout.activity_me);
         username = getIntent().getStringExtra("userName");
         showUsername = (TextView) findViewById(R.id.showUsername);
@@ -37,9 +60,7 @@ public class Me extends Activity {
         timeInterval = (EditText) findViewById(R.id.timeInterval);
         height = (EditText) findViewById(R.id.editText7);
         weight = (EditText) findViewById(R.id.editText8);
-        final Intent intent = new Intent(this, TimerService.class);
-//        startService(intent);
-        changeTimerMode(intent);
+        changeTimerMode();
 
         new AsyncTask<Void, Void, Void>() {
 
@@ -137,15 +158,13 @@ public class Me extends Activity {
         });
     }
 
-    public void changeTimerMode(final Intent intent) {
+    public void changeTimerMode() {
         switchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (switchBtn.getText().equals("Switch Off")) {
                     switchBtn.setText("Switch On");
-                    intent.putExtra("timerOn", false);
-                    intent.putExtra("userName",username);
-                    stopService(intent);
+                    stopMonitoring();
                 } else {
                     int time;
                     switchBtn.setText("Switch Off");
@@ -155,13 +174,34 @@ public class Me extends Activity {
                     } else {
                         time = Integer.parseInt(timeS) * 60 * 1000;
                     }
-                    intent.putExtra("timerOn", true);
-                    intent.putExtra("timeInterval", time);
-                    intent.putExtra("userName",username);
-                    startService(intent);
+                    startMonitoring();
                 }
             }
         });
+    }
+
+    private void startMonitoring() {
+        gravitySensorListener.setTimerOn(true);
+        postJob();
+    }
+
+    public void postJob() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                gravitySensorListener.incrementCounter();
+                int counter = gravitySensorListener.getCounter() % (intentFor.size() + 1);
+                if (counter > 0 && gravitySensorListener.isTimerOn()) {
+                    sendNotification(counter, username);
+                }
+                postJob();
+            }
+        }, 3000);
+    }
+
+    private void stopMonitoring() {
+        gravitySensorListener.setTimerOn(false);
+        gravitySensorListener.resetCounter();
     }
 
     public Double calculateBMI(int height, int weight) {
@@ -183,5 +223,62 @@ public class Me extends Activity {
         }
 
         return suggestion;
+    }
+
+    public void sendNotification(int counter, String userName) {
+        String id = "myChannel";
+        int importance = NotificationManager.IMPORTANCE_LOW;
+        NotificationChannel myChannel = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            myChannel = new NotificationChannel(id, "1234", importance);
+            myChannel.setLightColor(Color.GREEN);
+        }
+        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            nm.createNotificationChannel(myChannel);
+        }
+
+        Notification notification = null;
+        Intent intent1 = intentFor.get(counter);
+//        Intent intent1 = new Intent(this,Stretch.class);
+        intent1.putExtra("userName",userName);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            notification = new Notification.Builder(this, id)
+                    .setContentTitle("Let's move up")
+                    .setContentText("Don't be a couch potato!!")
+                    .setSmallIcon(R.drawable.ic_launcher)
+                    .setAutoCancel(true)
+                    .setContentIntent(pendingIntent)
+                    .setShowWhen(true)
+                    .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
+                    .build();
+        } else {
+            notification = new Notification.Builder(this)
+                    .setContentTitle("Move up")
+                    .setContentText("Don't be a couch potato!")
+                    .setSmallIcon(R.drawable.ic_launcher)
+                    .setAutoCancel(true)
+                    .setContentIntent(pendingIntent)
+                    .setShowWhen(true)
+                    .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
+                    .build();
+        }
+
+        nm.notify(1, notification);
+        Log.d("send", "notification sent...");
+    }
+    private HashMap<Integer,Intent> intentFor;
+    public void initIntent() {
+        intentFor = new HashMap<>();
+        Intent intent1 = new Intent(this, Stretch.class);
+        Intent intent2 = new Intent(this,Strength.class);
+        Intent intent3 = new Intent(this,Yoga.class);
+        Intent intent4 = new Intent(this,LoseWeight.class);
+        intentFor.put(1,intent1);
+        intentFor.put(2,intent2);
+        intentFor.put(3,intent3);
+        intentFor.put(4,intent4);
     }
 }
