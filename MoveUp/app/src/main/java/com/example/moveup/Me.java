@@ -143,7 +143,7 @@ public class Me extends Activity {
             public void onClick(View view) {
                 if (switchBtn.getText().equals("Switch Off")) {
                     switchBtn.setText("Switch On");
-                    intent.putExtra("timerOn", true);
+                    intent.putExtra("timerOn", false);
                     intent.putExtra("userName",username);
                     stopService(intent);
                 } else {
@@ -155,7 +155,7 @@ public class Me extends Activity {
                     } else {
                         time = Integer.parseInt(timeS) * 60 * 1000;
                     }
-                    intent.putExtra("timerOn", false);
+                    intent.putExtra("timerOn", true);
                     intent.putExtra("timeInterval", time);
                     intent.putExtra("userName",username);
                     startService(intent);
