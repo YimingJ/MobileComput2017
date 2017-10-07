@@ -1,4 +1,4 @@
-#Fri Oct 06 22:33:24 AEDT 2017
+#Sat Oct 07 13:32:58 AEDT 2017
 base.0=C\:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_95182bd0bd4c8590eba1af4df86a3469e249351f
 renamed.1=classes2.dex
 renamed.0=classes.dex

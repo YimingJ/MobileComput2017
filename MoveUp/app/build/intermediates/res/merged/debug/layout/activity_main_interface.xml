@@ -194,21 +194,20 @@
 
         <TextView
             android:id="@+id/textView15"
-            android:layout_width="122dp"
-            android:layout_height="66dp"
+            android:layout_width="141dp"
+            android:layout_height="match_parent"
             android:drawableTop="@drawable/suggestion"
             android:gravity="center"
             android:text="Suggestion"
             android:textColor="@color/dark"
             android:textSize="20dp"
             tools:layout_editor_absoluteX="111dp"
-            tools:layout_editor_absoluteY="448dp"
-            android:layout_weight="0.06" />
+            tools:layout_editor_absoluteY="448dp" />
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="136dp"
-            android:layout_height="match_parent"
+            android:layout_width="127dp"
+            android:layout_height="71dp"
             android:drawableTop="@drawable/me"
             android:gravity="center"
             android:text="Me"

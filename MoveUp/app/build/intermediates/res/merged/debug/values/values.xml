@@ -444,6 +444,7 @@
     <string name="search_menu_title">Search</string>
     <string name="service_title">Mobile Apps </string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="title_activity_suggestion">Suggestion</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>

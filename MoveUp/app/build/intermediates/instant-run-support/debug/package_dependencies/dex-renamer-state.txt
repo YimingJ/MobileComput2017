@@ -1,4 +1,4 @@
-#Fri Oct 06 22:30:37 AEDT 2017
+#Sat Oct 07 13:32:57 AEDT 2017
 file.2=C\:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-annotations-26.0.0-alpha1_cefe1428c86f063b77bceafe1787301b8f0f1778\\classes.dex
 base.2=C\:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-annotations-26.0.0-alpha1_cefe1428c86f063b77bceafe1787301b8f0f1778
 file.1=C\:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\azure-notifications-handler-1.0.1_456d87c8afa89c9686281aeed26b00cb053fbfcc\\classes.dex

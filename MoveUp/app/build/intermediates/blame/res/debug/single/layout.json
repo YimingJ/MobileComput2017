@@ -16,6 +16,10 @@
         "source": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
+        "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_suggestion.xml",
+        "source": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\src\\main\\res\\layout\\activity_suggestion.xml"
+    },
+    {
         "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
         "source": "C:\\Users\\Duod\\.android\\build-cache\\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
     },
@@ -108,12 +112,12 @@
         "source": "C:\\Users\\Duod\\.android\\build-cache\\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\\output\\res\\layout\\notification_template_part_time.xml"
     },
     {
-        "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
-        "source": "C:\\Users\\Duod\\.android\\build-cache\\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\\output\\res\\layout\\notification_template_part_chronometer.xml"
-    },
-    {
         "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
         "source": "C:\\Users\\Duod\\.android\\build-cache\\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\\output\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\Duod\\.android\\build-cache\\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\\output\\res\\layout\\notification_template_part_chronometer.xml"
     },
     {
         "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
@@ -170,6 +174,10 @@
     {
         "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
         "source": "C:\\Users\\Duod\\.android\\build-cache\\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_me.xml",
+        "source": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\src\\main\\res\\layout\\activity_me.xml"
     },
     {
         "merged": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",

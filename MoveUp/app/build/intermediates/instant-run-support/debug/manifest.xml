@@ -9,6 +9,9 @@
         android:targetSdkVersion="26" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <meta-data
         android:name="android.support.VERSION"
@@ -40,6 +43,10 @@
             android:name="com.example.moveup.TimerService"
             android:exported="false" />
 
+        <activity android:name="com.example.moveup.Me" />
+        <activity
+            android:name="com.example.moveup.Suggestion"
+            android:label="@string/title_activity_suggestion" />
         <activity
             android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity"
             android:exported="true" >
@@ -60,9 +67,10 @@
             android:exported="false"
             android:launchMode="singleTask" />
 
-        <service
-            android:name="com.android.tools.fd.runtime.InstantRunService"
-            android:exported="true" />
+        <provider
+            android:name="com.android.tools.fd.runtime.InstantRunContentProvider"
+            android:authorities="com.example.zumoappname.com.android.tools.fd.runtime.InstantRunContentProvider"
+            android:multiprocess="true" />
     </application>
 
 </manifest>
