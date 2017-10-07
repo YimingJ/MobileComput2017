@@ -1,7 +1,0 @@
-#Sat Oct 07 14:17:24 AEDT 2017
-base.0=/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_5dbf194da8b6fa9c187877e6e8b40ed7d82e9186
-renamed.1=classes2.dex
-renamed.0=classes.dex
-file.1=/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_715994fcf2e8f10407b93ddab04021a0e1b56a2c/classes.dex
-base.1=/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_715994fcf2e8f10407b93ddab04021a0e1b56a2c
-file.0=/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_5dbf194da8b6fa9c187877e6e8b40ed7d82e9186/classes.dex
