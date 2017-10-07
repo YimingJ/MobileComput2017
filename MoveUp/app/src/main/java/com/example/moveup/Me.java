@@ -103,7 +103,8 @@ public class Me extends Activity {
                                             weight.setText(weightS);
                                             if (!heightS.equals("0") && !weightS.equals("0")) {
                                                 Double BMI = calculateBMI(Integer.parseInt(heightS), Integer.parseInt(weightS));
-                                                showBMI.setText(String.valueOf(BMI));
+                                                String BMIS = "BMI: "+String.format("%.2f", BMI);
+                                                showBMI.setText(BMIS);
                                             }
 
                                         }
