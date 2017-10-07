@@ -5,6 +5,9 @@ package com.example.moveup;
  */
 
 public class User {
+    /**
+     *
+     */
     @com.google.gson.annotations.SerializedName("text")
     private String mText;
 
@@ -14,7 +17,11 @@ public class User {
     @com.google.gson.annotations.SerializedName("id")
     private String mId;
 
-
+    /**
+     * Item Id
+     */
+    @com.google.gson.annotations.SerializedName("username")
+    private String mUserName;
 
     /**
      * ToDoItem constructor
