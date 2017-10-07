@@ -86,6 +86,7 @@ public class MainActivity extends Activity {
 
         try {
             constant = new MoveUpConstant(this);
+            constant.setConstant(constant);
 
             // Offline Sync
             //mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
@@ -118,24 +119,24 @@ public class MainActivity extends Activity {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View v) {
-
-                    final ToDoItem item = new ToDoItem();
-                    item.setText("lalalala");
-
-                    new AsyncTask<Void, Void, Void>() {
-
-                        @Override
-                        protected Void doInBackground(Void... params) {
-                            try {
-                                List<ToDoItem> result = constant.getmToDoTable().where().field("text").eq(val("lalalala")).execute().get();
-                                constant.getmToDoTable().delete(result.get(0));
-//                                constant.getmToDoTable().insert(item).get();
-                            } catch (Exception exception) {
-                                createAndShowDialog(exception, "Error");
-                            }
-                            return null;
-                        }
-                    }.execute();
+//
+//                    final ToDoItem item = new ToDoItem();
+//                    item.setText("lalalala");
+//
+//                    new AsyncTask<Void, Void, Void>() {
+//
+//                        @Override
+//                        protected Void doInBackground(Void... params) {
+//                            try {
+//                                List<ToDoItem> result = constant.getmToDoTable().where().field("text").eq(val("lalalala")).execute().get();
+//                                constant.getmToDoTable().delete(result.get(0));
+////                                constant.getmToDoTable().insert(item).get();
+//                            } catch (Exception exception) {
+//                                createAndShowDialog(exception, "Error");
+//                            }
+//                            return null;
+//                        }
+//                    }.execute();
 
                     Intent intent = new Intent(MainActivity.this, Register.class);
                     startActivity(intent);
@@ -406,7 +407,7 @@ public class MainActivity extends Activity {
      * @param exception The exception to show in the dialog
      * @param title     The dialog title
      */
-    private void createAndShowDialog(Exception exception, String title) {
+    public void createAndShowDialog(Exception exception, String title) {
         Throwable ex = exception;
         if (exception.getCause() != null) {
             ex = exception.getCause();

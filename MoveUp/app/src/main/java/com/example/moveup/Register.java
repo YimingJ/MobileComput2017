@@ -2,14 +2,17 @@ package com.example.moveup;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.val;
 
 public class Register extends Activity {
     Button buttonCancel,buttonOk;
@@ -65,6 +68,24 @@ public class Register extends Activity {
                 Toast.makeText(this,"Please input correct format of email", Toast.LENGTH_SHORT).show();
             }
             else{//todo database
+                final User user = new User();
+                user.setuName(userName);
+                user.setuPwd(psw);
+                user.setuEmail(email);
+
+                new AsyncTask<Void, Void, Void>() {
+
+                    @Override
+                    protected Void doInBackground(Void... params) {
+                        try {
+                                MoveUpConstant.getInstance().getUserTable().insert(user).get();
+                        } catch (Exception exception) {
+                            MainActivity mainActivity = new MainActivity();
+                            mainActivity.createAndShowDialog(exception, "Error");
+                        }
+                        return null;
+                    }
+                }.execute();
                 Intent intent_register_login=new Intent(Register.this,MainInterface.class);
                 intent_register_login.putExtra("23",rUsername.getText().toString().trim());
                 startActivity(intent_register_login);}

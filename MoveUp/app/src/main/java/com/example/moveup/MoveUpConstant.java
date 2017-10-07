@@ -13,15 +13,24 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class MoveUpConstant {
+    private static MoveUpConstant constant;
+
+    public static void setConstant(MoveUpConstant constant) {
+        MoveUpConstant.constant = constant;
+    }
+
+    public static MoveUpConstant getInstance() {
+        return constant;
+    }
     /**
      * Mobile Service Client reference
      */
     private final MobileServiceClient mClient;
-
     /**
      * Mobile Service Table used to access data
      */
     private final MobileServiceTable<ToDoItem> mToDoTable;
+    private final MobileServiceTable<User> mUserTable;
 
     public MoveUpConstant(MainActivity activity) throws MalformedURLException {
         // Mobile Service URL and key
@@ -41,6 +50,7 @@ public class MoveUpConstant {
         // Get the Mobile Service Table instance to use
 
         mToDoTable = mClient.getTable(ToDoItem.class);
+        mUserTable = mClient.getTable(User.class);
     }
 
     public MobileServiceClient getmClient() {
@@ -50,4 +60,8 @@ public class MoveUpConstant {
     public MobileServiceTable<ToDoItem> getmToDoTable() {
         return mToDoTable;
     }
+    public MobileServiceTable<User> getUserTable() {
+        return mUserTable;
+    }
+
 }

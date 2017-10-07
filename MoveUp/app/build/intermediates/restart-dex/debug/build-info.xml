@@ -6,22 +6,22 @@
     density="560dpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1507346724077"
+    timestamp="1507351240308"
     token="3945924988619231190"
-    verifier="FIELD_REMOVED" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="143" />
+        duration="145" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="4" />
+        duration="67" />
     <task
         name="verifier"
-        duration="1" />
+        duration="9" />
 
     <artifact
         location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
@@ -70,8 +70,8 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1507346724077"
-        verifier="FIELD_REMOVED" >
+        timestamp="1507351240308"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />

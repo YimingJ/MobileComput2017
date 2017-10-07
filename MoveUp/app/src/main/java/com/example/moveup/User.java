@@ -6,80 +6,101 @@ package com.example.moveup;
 
 public class User {
     /**
-     *
+     * User email
      */
-    @com.google.gson.annotations.SerializedName("text")
-    private String mText;
+    @com.google.gson.annotations.SerializedName("email")
+    private String uEmail;
 
     /**
-     * Item Id
+     * User Id
      */
     @com.google.gson.annotations.SerializedName("id")
-    private String mId;
+    private String uId;
 
     /**
-     * Item Id
+     * User Username
      */
     @com.google.gson.annotations.SerializedName("username")
-    private String mUserName;
+    private String uName;
 
     /**
-     * ToDoItem constructor
+     *  User password
+     */
+    @com.google.gson.annotations.SerializedName("password")
+    private String uPwd;
+
+    /**
+     *  User height
+     */
+    @com.google.gson.annotations.SerializedName("height")
+    private String uHeight;
+
+    /**
+     *  User weight
+     */
+    @com.google.gson.annotations.SerializedName("weight")
+    private String uWeight;
+
+
+    /**
+     * User constructor
      */
     public User() {
 
     }
 
-    @Override
-    public String toString() {
-        return getText();
-    }
 
-    /**
-     * Initializes a new ToDoItem
-     *
-     * @param text
-     *            The item text
-     * @param id
-     *            The item id
-     */
 //    public User(String text, String id) {
 //        this.setText(text);
 //        this.setId(id);
 //    }
 
-    /**
-     * Returns the item text
-     */
-    public String getText() {
-        return mText;
+
+    public String getuEmail() {
+        return uEmail;
     }
 
-    /**
-     * Sets the item text
-     *
-     * @param text
-     *            text to set
-     */
-    public final void setText(String text) {
-        mText = text;
+    public void setuEmail(String uEmail) {
+        this.uEmail = uEmail;
     }
 
-    /**
-     * Returns the item id
-     */
-    public String getId() {
-        return mId;
+    public String getuId() {
+        return uId;
     }
 
-    /**
-     * Sets the item id
-     *
-     * @param id
-     *            id to set
-     */
-    public final void setId(String id) {
-        mId = id;
+    public void setuId(String uId) {
+        this.uId = uId;
     }
 
+    public String getuName() {
+        return uName;
+    }
+
+    public void setuName(String uName) {
+        this.uName = uName;
+    }
+
+    public String getuPwd() {
+        return uPwd;
+    }
+
+    public void setuPwd(String uPwd) {
+        this.uPwd = uPwd;
+    }
+
+    public String getuHeight() {
+        return uHeight;
+    }
+
+    public void setuHeight(String uHeight) {
+        this.uHeight = uHeight;
+    }
+
+    public String getuWeight() {
+        return uWeight;
+    }
+
+    public void setuWeight(String uWeight) {
+        this.uWeight = uWeight;
+    }
 }
