@@ -23,7 +23,7 @@ import android.util.Log;
 
 public class TimerService extends IntentService implements SensorEventListener {
     //    private static final long timeInterval = 1000 * 60 * 120;
-    private static final long timeInterval = 10000;
+    private static long timeInterval = 10000;
     private long startTime;
     private boolean stopFlag;
     private static int counter;
@@ -77,6 +77,7 @@ public class TimerService extends IntentService implements SensorEventListener {
         while (!stopFlag) {
             long currentTime = SystemClock.uptimeMillis();
             long interval = currentTime - startTime;
+            timeInterval = intent.getIntExtra("timeInterval",10000);
             if (interval > timeInterval) {
                 Log.d("lovelytimer", "" + interval);
                 sendNotification();

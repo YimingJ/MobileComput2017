@@ -92,8 +92,8 @@ public class MainActivity extends Activity {
 
             // Load the items from the Mobile Service
             refreshItemsFromTable();
-            Intent intent = new Intent(this, TimerService.class);
-            startService(intent);
+//            Intent intent = new Intent(this, TimerService.class);
+//            startService(intent);
 
 
             //新加进来的
