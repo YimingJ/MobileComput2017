@@ -1,4 +1,4 @@
-#Sat Oct 07 15:40:45 AEDT 2017
+#Sat Oct 07 16:00:13 AEDT 2017
 base.0=/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8
 renamed.0=classes.dex
 file.0=/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex
