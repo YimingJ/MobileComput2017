@@ -2,30 +2,30 @@
 <instant-run
     abi="x86"
     api-level="26"
-    build-mode="COLD"
+    build-mode="HOT_WARM"
     density="560dpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1507352407514"
+    timestamp="1507356913874"
     token="3945924988619231190"
-    verifier="METHOD_DELETED" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="119" />
+        duration="162" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="677" />
     <task
         name="instant-run-transform"
-        duration="10" />
+        duration="6" />
     <task
         name="verifier"
         duration="1" />
 
     <artifact
-        location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
-        type="SPLIT" />
+        location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/reload-dex/debug/classes.dex"
+        type="RELOAD_DEX" />
 
     <build
         build-mode="FULL"
@@ -70,11 +70,19 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1507352407514"
-        verifier="METHOD_DELETED" >
+        timestamp="1507356853696"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
+    </build>
+    <build
+        build-mode="HOT_WARM"
+        timestamp="1507356913874"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/reload-dex/debug/classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

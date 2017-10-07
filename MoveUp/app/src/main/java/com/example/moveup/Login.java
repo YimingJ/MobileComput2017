@@ -2,11 +2,15 @@ package com.example.moveup;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.microsoft.windowsazure.mobileservices.MobileServiceException;
+import com.microsoft.windowsazure.mobileservices.table.query.Query;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -25,8 +29,6 @@ public class Login extends Activity {
         buttonOk = (Button) findViewById(R.id.button6);
         lEmail = (EditText) findViewById(R.id.editText3);
         lPwd = (EditText) findViewById(R.id.editText6);
-        final String userEmail = lEmail.getText().toString().trim();
-        final String userPsw = lPwd.getText().toString().trim();
         buttonOk.setHeight(100);
         buttonOk.setWidth(350);
         buttonCancel.setHeight(100);
@@ -41,29 +43,40 @@ public class Login extends Activity {
         buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (IsCorrect(userEmail, userPsw)) {
-                    Intent intent = new Intent(Login.this, MainInterface.class);
-                    startActivity(intent);
-                }else {
-                    Toast.makeText(Login.this,"Please type in your correct email and password",Toast.LENGTH_SHORT).show();
-                }
+                final String userEmail = lEmail.getText().toString().trim();
+                final String userPsw = lPwd.getText().toString().trim();
+                IsCorrect(userEmail, userPsw);
             }
 
         });
     }
 
-    public boolean IsCorrect(String userEmail, String userPsw) {
-        //// TODO: 2017/10/3 1.database
-        try {
-            List<User> result = MoveUpConstant.getInstance().getUserTable().where().field("email").eq(val(userEmail)).execute().get();
-            if (result.size() == 1 && result.get(0).getuPwd().equals(userPsw)) {
-                return true;
+    public void IsCorrect(final String userEmail, final String userPsw) {
+        // TODO: 2017/10/3 1.database
+        new AsyncTask<Void, Void, Void>() {
+
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    List<User> result = MoveUpConstant.getInstance().getUserTable().where().field("email").eq(val(userEmail)).execute().get();
+                    if (result.size()==1 && result.get(0).getuPwd().equals(userPsw)){
+                        Intent intent = new Intent(Login.this, MainInterface.class);
+                        startActivity(intent);
+                    }else {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(Login.this,"Please input your correct email and password",Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                } catch (Exception exception) {
+                    MainActivity mainActivity = new MainActivity();
+                    mainActivity.createAndShowDialog(exception, "Error");
+                }
+                return null;
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-        return false;
+
+        }.execute();
     }
 }
