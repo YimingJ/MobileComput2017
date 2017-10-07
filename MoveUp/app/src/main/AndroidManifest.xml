@@ -33,9 +33,6 @@
         <activity android:name=".Stretch" android:screenOrientation="portrait"/>
         <activity android:name=".Strength" android:screenOrientation="portrait"/>
 
-        <service
-            android:name=".TimerService"
-            android:exported="false" />
 
         <activity android:name=".Me" android:screenOrientation="portrait"/>
         <activity android:name=".Suggestion" android:label="@string/title_activity_suggestion" android:screenOrientation="portrait"/>
