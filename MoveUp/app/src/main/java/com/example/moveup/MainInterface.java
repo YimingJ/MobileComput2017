@@ -3,7 +3,6 @@ package com.example.moveup;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -31,6 +30,18 @@ public class MainInterface extends Activity {
         Strength=(ImageView)findViewById(R.id.imageView);
         Yoga=(ImageView)findViewById(R.id.imageView3);
 
+        me.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainInterface.this,Me.class);
+                startActivity(intent);}
+        });
+        suggestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainInterface.this,Suggestion.class);
+                startActivity(intent);}
+        });
         exercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

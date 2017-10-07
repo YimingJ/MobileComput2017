@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="dd558a0d2b27ac5b6c0d47894e78dd09b276c254">
-        <dex dex="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_715994fcf2e8f10407b93ddab04021a0e1b56a2c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.1"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_5dbf194da8b6fa9c187877e6e8b40ed7d82e9186/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="b103c54595090992d02dbada9cf4567669483b01">
+        <dex dex="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_715994fcf2e8f10407b93ddab04021a0e1b56a2c/classes.dex" />
     </item>
 
 </items>
