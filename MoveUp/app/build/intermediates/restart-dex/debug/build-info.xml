@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
     abi="x86"
+<<<<<<< HEAD
     api-level="25"
     build-mode="COLD"
     density="560dpi"
@@ -8,16 +9,30 @@
     plugin-version="2.3.3"
     timestamp="1507344398367"
     token="6785201762835199897"
+=======
+    api-level="26"
+    build-mode="COLD"
+    density="560dpi"
+    format="10"
+    plugin-version="2.3.0"
+    timestamp="1507294022874"
+    token="3945924988619231190"
+>>>>>>> 8929af23ff4a0e69917d7d4f44a402f9a49b5fba
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
+<<<<<<< HEAD
         duration="0" />
+=======
+        duration="169" />
+>>>>>>> 8929af23ff4a0e69917d7d4f44a402f9a49b5fba
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
+<<<<<<< HEAD
         duration="0" />
     <task
         name="verifier"
@@ -59,6 +74,64 @@
             type="SPLIT" />
         <artifact
             location="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+=======
+        duration="6" />
+    <task
+        name="verifier"
+        duration="0" />
+
+    <artifact
+        location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+        type="SPLIT" />
+
+    <build
+        build-mode="FULL"
+        timestamp="1507293710394"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/outputs/apk/app-debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1507294022874"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+>>>>>>> 8929af23ff4a0e69917d7d4f44a402f9a49b5fba
             type="SPLIT" />
         <artifact
             location="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\outputs\apk\app-debug.apk"

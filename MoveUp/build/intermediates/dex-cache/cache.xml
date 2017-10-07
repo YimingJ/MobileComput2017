@@ -3,15 +3,16 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Duod\.android\build-cache\9f1058e12be8da66e4acbb58c0889b9a800550fb\output\jars\classes.jar"
+        jar="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.1"
-        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
-        <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_02d4d9275566a51438e5efbf52f9dbb2453f1868\classes.dex" />
+        sha1="dd558a0d2b27ac5b6c0d47894e78dd09b276c254">
+        <dex dex="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_715994fcf2e8f10407b93ddab04021a0e1b56a2c/classes.dex" />
     </item>
     <item
         is-multidex="true"
+<<<<<<< HEAD
         jar="C:\Users\Duod\.android\build-cache\d162562fa0177faf94ad527be4698e0b0f9ced8e\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -180,6 +181,14 @@
         revision="26.0.1"
         sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
         <dex dex="C:\Users\Duod\AndroidStudioProjects\MobileComput2017\MoveUp\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_988ed1e646d8e5a5a62ca7c74fd8472dc50c58b9\classes.dex" />
+=======
+        jar="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_5dbf194da8b6fa9c187877e6e8b40ed7d82e9186/classes.dex" />
+>>>>>>> 8929af23ff4a0e69917d7d4f44a402f9a49b5fba
     </item>
 
 </items>

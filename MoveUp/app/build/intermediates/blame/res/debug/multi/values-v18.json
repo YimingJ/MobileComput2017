@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v18\\values-v18.xml",
+        "outputFile": "/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v18/values-v18.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 99
                 },
                 "from": {
-                    "file": "C:\\Users\\Duod\\.android\\build-cache\\65707703aa5b9c6ad6c7d0a36b0480244ba96a2c\\output\\res\\values-v18\\values-v18.xml",
+                    "file": "/Users/jiangyiming/.android/build-cache/e5c477db06d3205c9df468778f63746a57efd653/output/res/values-v18/values-v18.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

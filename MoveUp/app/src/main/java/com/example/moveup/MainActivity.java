@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
      */
     private MobileServiceTable<ToDoItem> mToDoTable;
 
-    Button button,button2;
+    Button button, button2;
     TextView textView;
     //Offline Sync
     /**
@@ -135,9 +135,9 @@ public class MainActivity extends Activity {
 
 
             //新加进来的
-            button=(Button)findViewById(R.id.button);
-            button2=(Button)findViewById(R.id.button2);
-            textView=(TextView)findViewById(R.id.textView);
+            button = (Button) findViewById(R.id.button);
+            button2 = (Button) findViewById(R.id.button2);
+            textView = (TextView) findViewById(R.id.textView);
             button.setHeight(100);
             button.setWidth(350);
             button2.setHeight(100);
@@ -145,8 +145,37 @@ public class MainActivity extends Activity {
 
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                    Intent intent=new Intent(MainActivity.this,Register.class);
+                public void onClick(final View v) {
+
+                    final ToDoItem item = new ToDoItem();
+                    item.setText("mamamamam");
+
+                    new AsyncTask<Void, Void, Void>() {
+
+                        @Override
+                        protected Void doInBackground(Void... params) {
+                            try {
+                                List<ToDoItem> result = mToDoTable.where().field("text").eq(val("mamamamam")).execute().get();
+                                mToDoTable.delete(result.get(0));
+//                                mToDoTable.insert(item).get();
+                                runOnUiThread(new Runnable() {
+
+                                    @Override
+                                    public void run() {
+                                        mAdapter.clear();
+//                                        for (ToDoItem item : result) {
+//                                            mAdapter.add(item);
+//                                        }
+                                    }
+                                });
+                            } catch (Exception exception) {
+                                createAndShowDialog(exception, "Error");
+                            }
+                            return null;
+                        }
+                    }.execute();
+
+                    Intent intent = new Intent(MainActivity.this, Register.class);
                     startActivity(intent);
                 }
             });
@@ -154,17 +183,19 @@ public class MainActivity extends Activity {
             button2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(MainActivity.this,Login.class);
+
+                    Intent intent = new Intent(MainActivity.this, Login.class);
                     startActivity(intent);
                 }
             });
 
         } catch (MalformedURLException e) {
             createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
-        } catch (Exception e){
+        } catch (Exception e) {
             createAndShowDialog(e, "Error");
         }
     }
+
 
     /**
      * Initializes the activity menu
@@ -190,8 +221,7 @@ public class MainActivity extends Activity {
     /**
      * Mark an item as completed
      *
-     * @param item
-     *            The item to mark
+     * @param item The item to mark
      */
     public void checkItem(final ToDoItem item) {
         if (mClient == null) {
@@ -201,7 +231,7 @@ public class MainActivity extends Activity {
         // Set the item as completed and update it in the table
         item.setComplete(true);
 
-        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
                 try {
@@ -230,8 +260,7 @@ public class MainActivity extends Activity {
     /**
      * Mark an item as completed in the Mobile Service Table
      *
-     * @param item
-     *            The item to mark
+     * @param item The item to mark
      */
     public void checkItemInTable(ToDoItem item) throws ExecutionException, InterruptedException {
         mToDoTable.update(item).get();
@@ -240,8 +269,7 @@ public class MainActivity extends Activity {
     /**
      * Add a new item
      *
-     * @param view
-     *            The view that originated the call
+     * @param view The view that originated the call
      */
     public void addItem(View view) {
         if (mClient == null) {
@@ -254,7 +282,7 @@ public class MainActivity extends Activity {
         item.setText("fromMoveUp");
         item.setComplete(false);
         // Insert the new item
-        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
                 try {
@@ -283,8 +311,7 @@ public class MainActivity extends Activity {
     /**
      * Add an item to the Mobile Service Table
      *
-     * @param item
-     *            The item to Add
+     * @param item The item to Add
      */
     public ToDoItem addItemInTable(ToDoItem item) throws ExecutionException, InterruptedException {
         ToDoItem entity = mToDoTable.insert(item).get();
@@ -299,7 +326,7 @@ public class MainActivity extends Activity {
         // Get the items that weren't marked as completed and add them in the
         // adapter
 
-        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
 
@@ -319,7 +346,7 @@ public class MainActivity extends Activity {
                             }
                         }
                     });
-                } catch (final Exception e){
+                } catch (final Exception e) {
                     createAndShowDialogFromTask(e, "Error");
                 }
 
@@ -353,6 +380,7 @@ public class MainActivity extends Activity {
 
     /**
      * Initialize local storage
+     *
      * @return
      * @throws MobileServiceLocalStoreException
      * @throws ExecutionException
@@ -397,10 +425,8 @@ public class MainActivity extends Activity {
     /**
      * Creates a dialog and shows it
      *
-     * @param exception
-     *            The exception to show in the dialog
-     * @param title
-     *            The dialog title
+     * @param exception The exception to show in the dialog
+     * @param title     The dialog title
      */
     private void createAndShowDialogFromTask(final Exception exception, String title) {
         runOnUiThread(new Runnable() {
@@ -415,14 +441,12 @@ public class MainActivity extends Activity {
     /**
      * Creates a dialog and shows it
      *
-     * @param exception
-     *            The exception to show in the dialog
-     * @param title
-     *            The dialog title
+     * @param exception The exception to show in the dialog
+     * @param title     The dialog title
      */
     private void createAndShowDialog(Exception exception, String title) {
         Throwable ex = exception;
-        if(exception.getCause() != null){
+        if (exception.getCause() != null) {
             ex = exception.getCause();
         }
         createAndShowDialog(ex.getMessage(), title);
@@ -431,10 +455,8 @@ public class MainActivity extends Activity {
     /**
      * Creates a dialog and shows it
      *
-     * @param message
-     *            The dialog message
-     * @param title
-     *            The dialog title
+     * @param message The dialog message
+     * @param title   The dialog title
      */
     private void createAndShowDialog(final String message, final String title) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -446,6 +468,7 @@ public class MainActivity extends Activity {
 
     /**
      * Run an ASync task on the corresponding executor
+     *
      * @param task
      * @return
      */

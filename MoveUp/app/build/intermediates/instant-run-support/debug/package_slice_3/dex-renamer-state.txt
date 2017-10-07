@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 #Sat Oct 07 13:32:57 AEDT 2017
 base.0=C\:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_3
+=======
+#Fri Oct 06 23:42:02 AEDT 2017
+base.0=/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3
+>>>>>>> 8929af23ff4a0e69917d7d4f44a402f9a49b5fba
 renamed.0=classes.dex
-file.0=C\:\\Users\\Duod\\AndroidStudioProjects\\MobileComput2017\\MoveUp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_3\\classes.dex
+file.0=/Users/jiangyiming/Desktop/MobileComp2017/MoveUp/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex
