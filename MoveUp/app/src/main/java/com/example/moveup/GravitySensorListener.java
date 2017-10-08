@@ -6,9 +6,6 @@ import android.hardware.SensorEventListener;
 import android.os.SystemClock;
 import android.util.Log;
 
-/**
- * Created by RyanZhu on 10/7/17.
- */
 
 public class GravitySensorListener implements SensorEventListener {
     private double lastAccX;
