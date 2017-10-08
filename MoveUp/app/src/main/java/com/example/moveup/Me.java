@@ -62,7 +62,7 @@ public class Me extends Activity {
         setContentView(R.layout.activity_me);
         username = getIntent().getStringExtra("userName");
         showUsername = (TextView) findViewById(R.id.showUsername);
-        String showUser = "Hello, " +username;
+        String showUser = "Hello, " + username;
         showUsername.setText(showUser);
         showBMI = (TextView) findViewById(R.id.showBMI);
         switchBtn = (Button) findViewById(R.id.button7);
@@ -89,7 +89,7 @@ public class Me extends Activity {
                                 weight.setText(weightS);
                                 if (!heightS.equals("0") && !weightS.equals("0")) {
                                     Double BMI = Util.calculateBMI(Integer.parseInt(heightS), Integer.parseInt(weightS));
-                                    String BMIS = "BMI: "+String.format("%.2f", BMI);
+                                    String BMIS = "BMI: " + String.format("%.2f", BMI);
                                     showBMI.setText(BMIS);
                                 }
 
@@ -128,19 +128,19 @@ public class Me extends Activity {
                                 user.setuWeight(weightS);
                                 user.setuHeight(heightS);
                                 MoveUpConstant.getInstance().getUserTable().update(user).get();
-                                    runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            height.setText(heightS);
-                                            weight.setText(weightS);
-                                            if (!heightS.equals("0") && !weightS.equals("0")) {
-                                                Double BMI = Util.calculateBMI(Integer.parseInt(heightS), Integer.parseInt(weightS));
-                                                String BMIS = "BMI: "+String.format("%.2f", BMI);
-                                                showBMI.setText(BMIS);
-                                            }
-
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        height.setText(heightS);
+                                        weight.setText(weightS);
+                                        if (!heightS.equals("0") && !weightS.equals("0")) {
+                                            Double BMI = Util.calculateBMI(Integer.parseInt(heightS), Integer.parseInt(weightS));
+                                            String BMIS = "BMI: " + String.format("%.2f", BMI);
+                                            showBMI.setText(BMIS);
                                         }
-                                    });
+
+                                    }
+                                });
                             } catch (Exception exception) {
                                 MainActivity mainActivity = new MainActivity();
                                 mainActivity.createAndShowDialog(exception, "Error");
@@ -150,13 +150,9 @@ public class Me extends Activity {
 
                     }.execute();
 
-//                    String suggestion = handleData(heightInt, weightInt);
                     Intent intent = new Intent();
-//                    Bundle bundle = new Bundle();
-//                    bundle.putString("suggest", suggestion);
-//                    intent.putExtras(bundle);
                     intent.setClass(Me.this, Suggestion.class);
-                    intent.putExtra("userName",username);
+                    intent.putExtra("userName", username);
                     startActivity(intent);
                 }
             }
@@ -197,7 +193,9 @@ public class Me extends Activity {
         gravitySensorListener.setTimerOn(true);
         postJob(interval);
     }
-    int counter=1;
+
+    int counter = 1;
+
     public void postJob(final int interval) {
         handler.postDelayed(new Runnable() {
             @Override
@@ -212,14 +210,7 @@ public class Me extends Activity {
                         counter = 1;
                     }
                 }
-//                if (!gtThreshold) {
-//                    counter = 1;
-//                }
-                if(gravitySensorListener.isTimerOn()){
-//                    int nextDelay = Math.min(
-//                            (int)(SystemClock.uptimeMillis() - gravitySensorListener.getStartTime())
-//                            , interval);
-//                    Log.d("postDelay", String.valueOf(nextDelay));
+                if (gravitySensorListener.isTimerOn()) {
                     postJob(interval);
                 }
             }
@@ -231,12 +222,9 @@ public class Me extends Activity {
     }
 
 
-
-
-
     public void sendNotification(int counter, String userName) {
         String id = "myChannel";
-        Log.d("counter",""+counter);
+        Log.d("counter", "" + counter);
         int importance = NotificationManager.IMPORTANCE_LOW;
         NotificationChannel myChannel = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -250,8 +238,7 @@ public class Me extends Activity {
 
         Notification notification = null;
         Intent intent1 = intentFor.get(counter);
-//        Intent intent1 = new Intent(this,Stretch.class);
-        intent1.putExtra("userName",userName);
+        intent1.putExtra("userName", userName);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -279,16 +266,18 @@ public class Me extends Activity {
         nm.notify(1, notification);
         Log.d("send", "notification sent...");
     }
-    private HashMap<Integer,Intent> intentFor;
+
+    private HashMap<Integer, Intent> intentFor;
+
     public void initIntent() {
         intentFor = new HashMap<>();
         Intent intent1 = new Intent(this, Stretch.class);
-        Intent intent2 = new Intent(this,Strength.class);
-        Intent intent3 = new Intent(this,Yoga.class);
-        Intent intent4 = new Intent(this,LoseWeight.class);
-        intentFor.put(1,intent1);
-        intentFor.put(2,intent2);
-        intentFor.put(3,intent3);
-        intentFor.put(4,intent4);
+        Intent intent2 = new Intent(this, Strength.class);
+        Intent intent3 = new Intent(this, Yoga.class);
+        Intent intent4 = new Intent(this, LoseWeight.class);
+        intentFor.put(1, intent1);
+        intentFor.put(2, intent2);
+        intentFor.put(3, intent3);
+        intentFor.put(4, intent4);
     }
 }

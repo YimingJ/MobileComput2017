@@ -48,7 +48,6 @@ public class Login extends Activity {
     }
 
     public void IsCorrect(final String userEmail, final String userPsw) {
-        // TODO: 2017/10/3 1.database
         new AsyncTask<Void, Void, Void>() {
 
             @Override

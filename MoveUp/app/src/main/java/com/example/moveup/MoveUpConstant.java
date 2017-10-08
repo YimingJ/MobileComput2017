@@ -47,7 +47,6 @@ public class MoveUpConstant {
         });
 
         // Get the Mobile Service Table instance to use
-
         mUserTable = mClient.getTable(User.class);
     }
 
