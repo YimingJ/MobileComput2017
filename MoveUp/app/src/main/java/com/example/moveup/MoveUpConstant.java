@@ -29,7 +29,6 @@ public class MoveUpConstant {
     /**
      * Mobile Service Table used to access data
      */
-    private final MobileServiceTable<ToDoItem> mToDoTable;
     private final MobileServiceTable<User> mUserTable;
 
     public MoveUpConstant(MainActivity activity) throws MalformedURLException {
@@ -49,7 +48,6 @@ public class MoveUpConstant {
 
         // Get the Mobile Service Table instance to use
 
-        mToDoTable = mClient.getTable(ToDoItem.class);
         mUserTable = mClient.getTable(User.class);
     }
 
@@ -57,9 +55,6 @@ public class MoveUpConstant {
         return mClient;
     }
 
-    public MobileServiceTable<ToDoItem> getmToDoTable() {
-        return mToDoTable;
-    }
     public MobileServiceTable<User> getUserTable() {
         return mUserTable;
     }
