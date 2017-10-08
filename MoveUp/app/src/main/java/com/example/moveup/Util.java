@@ -5,4 +5,8 @@ package com.example.moveup;
  */
 
 public class Util {
+    public static Double calculateBMI(int height, int weight) {
+        double height1 = (double) (height) / 100;
+        return ((double) weight) / (height1 * height1);
+    }
 }

@@ -42,6 +42,7 @@ public class MainInterface extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(MainInterface.this,Suggestion.class);
+                intent.putExtra("userName",userName);
                 startActivity(intent);}
         });
         exercise.setOnClickListener(new View.OnClickListener() {

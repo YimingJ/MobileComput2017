@@ -77,7 +77,7 @@ public class Me extends Activity {
                                 height.setText(heightS);
                                 weight.setText(weightS);
                                 if (!heightS.equals("0") && !weightS.equals("0")) {
-                                    Double BMI = calculateBMI(Integer.parseInt(heightS), Integer.parseInt(weightS));
+                                    Double BMI = Util.calculateBMI(Integer.parseInt(heightS), Integer.parseInt(weightS));
                                     String BMIS = "BMI: "+String.format("%.2f", BMI);
                                     showBMI.setText(BMIS);
                                 }
@@ -123,7 +123,7 @@ public class Me extends Activity {
                                             height.setText(heightS);
                                             weight.setText(weightS);
                                             if (!heightS.equals("0") && !weightS.equals("0")) {
-                                                Double BMI = calculateBMI(Integer.parseInt(heightS), Integer.parseInt(weightS));
+                                                Double BMI = Util.calculateBMI(Integer.parseInt(heightS), Integer.parseInt(weightS));
                                                 String BMIS = "BMI: "+String.format("%.2f", BMI);
                                                 showBMI.setText(BMIS);
                                             }
@@ -217,13 +217,10 @@ public class Me extends Activity {
         gravitySensorListener.setTimerOn(false);
     }
 
-    public sDouble calculateBMI(int height, int weight) {
-        double height1 = (double) (height) / 100;
-        return ((double) weight) / (height1 * height1);
-    }
+
 
     public String handleData(int height, int weight) {
-        Double BMI = calculateBMI(height, weight);
+        Double BMI = Util.calculateBMI(height, weight);
         String suggestion;
         if (BMI < 18.5) {
             suggestion = "Do level 1";
