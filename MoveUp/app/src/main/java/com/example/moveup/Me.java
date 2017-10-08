@@ -186,7 +186,7 @@ public class Me extends Activity {
 
     private void startMonitoring() {
         gravitySensorListener.setTimerOn(true);
-        postJob(10000);
+        postJob(interval);
     }
     int counter=1;
     public void postJob(final int interval) {
@@ -214,7 +214,7 @@ public class Me extends Activity {
                     postJob(interval);
                 }
             }
-        }, 1000);
+        }, interval);
     }
 
     private void stopMonitoring() {
