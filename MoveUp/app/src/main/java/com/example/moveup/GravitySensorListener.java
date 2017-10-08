@@ -12,25 +12,18 @@ public class GravitySensorListener implements SensorEventListener {
     private double lastAccY;
     private double lastAccZ;
     private long startTime;
-    private int counter;
+
     private boolean timerOn;
 
     public boolean isTimerOn() {
         return timerOn;
     }
 
-    public void incrementCounter() {
-        counter++;
-    }
-    public int getCounter() {
-        return counter;
-    }
 
     private static GravitySensorListener listener;
 
     private GravitySensorListener() {
         this.timerOn = false;
-        this.counter = 0;
     }
 
     public static GravitySensorListener getInstance() {
@@ -58,10 +51,12 @@ public class GravitySensorListener implements SensorEventListener {
             lastAccX = curAccX;
             lastAccY = curAccY;
             lastAccZ = curAccZ;
-            resetCounter();
-            Log.d("sensorChange", ""+counter);
             Log.d("sensorChange", "change detected");
         }
+    }
+
+    public long getStartTime() {
+        return startTime;
     }
 
     @Override
@@ -69,7 +64,4 @@ public class GravitySensorListener implements SensorEventListener {
 
     }
 
-    public void resetCounter() {
-        counter = 0;
-    }
 }

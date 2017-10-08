@@ -166,13 +166,12 @@ public class Me extends Activity {
                     switchBtn.setText("Switch On");
                     stopMonitoring();
                 } else {
-                    int time;
                     switchBtn.setText("Switch Off");
                     String timeS = timeInterval.getText().toString();
                     if (timeS.trim().equals("")) {
-                        time = 60 * 60 * 1000;
+                        interval = 60 * 60 * 1000;
                     } else {
-                        time = Integer.parseInt(timeS) * 60 * 1000;
+                        interval = Integer.parseInt(timeS) * 60 * 1000;
                     }
                     startMonitoring();
                 }
@@ -180,28 +179,42 @@ public class Me extends Activity {
         });
     }
 
+    private int interval;
+
     private void startMonitoring() {
         gravitySensorListener.setTimerOn(true);
-        postJob();
+        postJob(interval);
     }
-
-    public void postJob() {
+    int counter = 1;
+    public void postJob(int delay) {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                gravitySensorListener.incrementCounter();
-                int counter = gravitySensorListener.getCounter() % (intentFor.size() + 1);
-                if (counter > 0 && gravitySensorListener.isTimerOn()) {
+                long curMil = SystemClock.uptimeMillis();
+                boolean gtThreshold = curMil - gravitySensorListener.getStartTime() > interval;
+                if (gtThreshold && gravitySensorListener.isTimerOn()) {
                     sendNotification(counter, username);
+                    counter++;
+                    if (counter > intentFor.size()) {
+                        counter = 1;
+                    }
                 }
-                postJob();
+                if (!gtThreshold) {
+                    counter = 1;
+                }
+                if(gravitySensorListener.isTimerOn()){
+                    int nextDelay = Math.min(
+                            (int)(SystemClock.uptimeMillis() - gravitySensorListener.getStartTime())
+                            , interval);
+                    Log.d("postDelay", String.valueOf(nextDelay));
+                    postJob(nextDelay);
+                }
             }
-        }, 3000);
+        }, delay);
     }
 
     private void stopMonitoring() {
         gravitySensorListener.setTimerOn(false);
-        gravitySensorListener.resetCounter();
     }
 
     public Double calculateBMI(int height, int weight) {
