@@ -217,7 +217,7 @@ public class Me extends Activity {
         gravitySensorListener.setTimerOn(false);
     }
 
-    public Double calculateBMI(int height, int weight) {
+    public sDouble calculateBMI(int height, int weight) {
         double height1 = (double) (height) / 100;
         return ((double) weight) / (height1 * height1);
     }
