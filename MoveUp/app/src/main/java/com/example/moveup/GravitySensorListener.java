@@ -13,7 +13,6 @@ public class GravitySensorListener implements SensorEventListener {
     private double lastAccZ;
     private long startTime;
     private boolean timerOn;
-    private boolean onChange;
 
     public boolean isTimerOn() {
         return timerOn;

@@ -9,11 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.val;
 
 public class Register extends Activity {
     Button buttonCancel, buttonOk;
