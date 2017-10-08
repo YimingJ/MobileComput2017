@@ -139,12 +139,13 @@ public class Me extends Activity {
 
                     }.execute();
 
-                    String suggestion = handleData(heightInt, weightInt);
+//                    String suggestion = handleData(heightInt, weightInt);
                     Intent intent = new Intent();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("suggest", suggestion);
-                    intent.putExtras(bundle);
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("suggest", suggestion);
+//                    intent.putExtras(bundle);
                     intent.setClass(Me.this, Suggestion.class);
+                    intent.putExtra("userName",username);
                     startActivity(intent);
                 }
             }
@@ -219,21 +220,7 @@ public class Me extends Activity {
 
 
 
-    public String handleData(int height, int weight) {
-        Double BMI = Util.calculateBMI(height, weight);
-        String suggestion;
-        if (BMI < 18.5) {
-            suggestion = "Do level 1";
-        } else if (BMI >= 18.5 && BMI < 24) {
-            suggestion = "Do level 2";
-        } else if (BMI >= 24 && BMI < 27) {
-            suggestion = "Do level 3";
-        } else {
-            suggestion = "Do level 4";
-        }
 
-        return suggestion;
-    }
 
     public void sendNotification(int counter, String userName) {
         String id = "myChannel";
