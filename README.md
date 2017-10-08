@@ -1,7 +1,7 @@
 # MobileComput2017
 This repo is for MobileComputing Project2
 
-##There are serveral sub projects as for learning purpose:
+## There are serveral sub projects as for learning purpose:
 
 1.[Timer](https://github.com/YimingJ/MobileComput2017/tree/master/Timer)
 2.[Accelerometer](https://github.com/YimingJ/MobileComput2017/tree/master/Accelerometer)
