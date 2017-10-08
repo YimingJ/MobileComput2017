@@ -34,9 +34,11 @@ public class Me extends Activity {
     private GravitySensorListener gravitySensorListener;
     private Sensor mySensor;
     private SensorManager sensorManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         initIntent();
         gravitySensorListener = GravitySensorListener.getInstance();
         handlerThread = new HandlerThread("timerServiceHandlerThread");
@@ -184,10 +186,10 @@ public class Me extends Activity {
 
     private void startMonitoring() {
         gravitySensorListener.setTimerOn(true);
-        postJob(interval);
+        postJob(10000);
     }
-    int counter = 1;
-    public void postJob(int delay) {
+    int counter=1;
+    public void postJob(final int interval) {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -195,23 +197,24 @@ public class Me extends Activity {
                 boolean gtThreshold = curMil - gravitySensorListener.getStartTime() > interval;
                 if (gtThreshold && gravitySensorListener.isTimerOn()) {
                     sendNotification(counter, username);
+                    gravitySensorListener.setStartTime(curMil);
                     counter++;
                     if (counter > intentFor.size()) {
                         counter = 1;
                     }
                 }
-                if (!gtThreshold) {
-                    counter = 1;
-                }
+//                if (!gtThreshold) {
+//                    counter = 1;
+//                }
                 if(gravitySensorListener.isTimerOn()){
-                    int nextDelay = Math.min(
-                            (int)(SystemClock.uptimeMillis() - gravitySensorListener.getStartTime())
-                            , interval);
-                    Log.d("postDelay", String.valueOf(nextDelay));
-                    postJob(nextDelay);
+//                    int nextDelay = Math.min(
+//                            (int)(SystemClock.uptimeMillis() - gravitySensorListener.getStartTime())
+//                            , interval);
+//                    Log.d("postDelay", String.valueOf(nextDelay));
+                    postJob(interval);
                 }
             }
-        }, delay);
+        }, 1000);
     }
 
     private void stopMonitoring() {
@@ -224,6 +227,7 @@ public class Me extends Activity {
 
     public void sendNotification(int counter, String userName) {
         String id = "myChannel";
+        Log.d("counter",""+counter);
         int importance = NotificationManager.IMPORTANCE_LOW;
         NotificationChannel myChannel = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -253,7 +257,7 @@ public class Me extends Activity {
                     .build();
         } else {
             notification = new Notification.Builder(this)
-                    .setContentTitle("Move up")
+                    .setContentTitle("Let's move up")
                     .setContentText("Don't be a couch potato!")
                     .setSmallIcon(R.drawable.ic_launcher)
                     .setAutoCancel(true)

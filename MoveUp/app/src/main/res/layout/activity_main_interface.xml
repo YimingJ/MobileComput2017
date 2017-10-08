@@ -182,8 +182,8 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="124dp"
-            android:layout_height="match_parent"
+            android:layout_width="112dp"
+            android:layout_height="71dp"
             android:drawableTop="@drawable/exercise"
             android:gravity="center"
             android:text="Exercise"
@@ -194,8 +194,8 @@
 
         <TextView
             android:id="@+id/textView15"
-            android:layout_width="141dp"
-            android:layout_height="match_parent"
+            android:layout_width="129dp"
+            android:layout_height="67dp"
             android:drawableTop="@drawable/suggestion"
             android:gravity="center"
             android:text="Suggestion"
@@ -206,8 +206,8 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="127dp"
-            android:layout_height="71dp"
+            android:layout_width="122dp"
+            android:layout_height="70dp"
             android:drawableTop="@drawable/me"
             android:gravity="center"
             android:text="Me"

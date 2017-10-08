@@ -12,8 +12,8 @@ public class GravitySensorListener implements SensorEventListener {
     private double lastAccY;
     private double lastAccZ;
     private long startTime;
-
     private boolean timerOn;
+    private boolean onChange;
 
     public boolean isTimerOn() {
         return timerOn;
@@ -35,6 +35,10 @@ public class GravitySensorListener implements SensorEventListener {
 
     public void setTimerOn(boolean timerOn) {
         this.timerOn = timerOn;
+    }
+
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
     }
 
     @Override
